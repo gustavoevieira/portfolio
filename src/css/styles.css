@@ -1,0 +1,655 @@
+:root {
+    --color-dark-blue: #0A1128; 
+    --color-green-moss: #3A5743;
+    --color-earth-brown: #6F4E37; 
+    --color-orange-fire: #E57F2E;
+    --color-gold-yellow: #F5B700;
+    --color-white: #FFFFFF;
+    --color-off-white: #F8F8F8;
+    --color-light-gray: #D0D0D0;
+    --color-dark-text: #333333;
+    --color-light-text: #E0E0E0;
+}
+
+/* Base Geral */
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+    color: var(--color-dark-text);
+    background-color: var(--color-off-white);
+    transition: background-color 0.5s ease, color 0.5s ease;
+    overflow-x: hidden; /* Evita rolagem horizontal */
+}
+
+/* Modo Light */
+body.light-mode {
+    background-color: var(--color-off-white);
+    color: var(--color-dark-text);
+}
+
+body.light-mode a {
+    color: var(--color-green-moss);
+}
+
+/* Modo Dark */
+body.dark-mode {
+    background-color: var(--color-dark-blue);
+    color: var(--color-light-text);
+}
+
+body.dark-mode a {
+    color: var(--color-gold-yellow);
+}
+
+/* Cabeçalho e Navegação (Bússola) */
+.main-header {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Alinha os itens à direita */
+    gap: 15px;
+}
+
+.header-controls { /* Novo wrapper para agrupar os botões de controle */
+    display: flex;
+    gap: 10px; /* Espaçamento entre os botões */
+    align-items: center;
+}
+
+.control-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+    background-color: var(--color-light-gray);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.control-btn:hover {
+    transform: translateY(-2px);
+}
+
+body.dark-mode .control-btn {
+    background-color: var(--color-dark-blue);
+}
+
+/* Botão de Idioma */
+.language-toggle-btn {
+    width: 60px; /* Largura para acomodar "PT" e "EN" */
+    border-radius: 25px; /* Bordas arredondadas como um pílula */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5px;
+    background-color: var(--color-light-gray);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    position: relative; /* Para o indicador de idioma ativo */
+    overflow: hidden; /* Para esconder o que transborda do background ativo */
+}
+
+body.dark-mode .language-toggle-btn {
+    background-color: var(--color-dark-blue);
+}
+
+.language-toggle-btn .lang-text {
+    font-weight: bold;
+    font-size: 0.9em;
+    color: var(--color-dark-text);
+    padding: 5px;
+    width: 50%;
+    text-align: center;
+    z-index: 1; /* Para o texto ficar acima do background ativo */
+    transition: color 0.3s ease;
+}
+
+body.dark-mode .language-toggle-btn .lang-text {
+    color: var(--color-light-text);
+}
+
+/* Indicador de idioma ativo */
+.language-toggle-btn::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    bottom: 2px;
+    width: calc(50% - 2px); /* Metade da largura do botão menos um pequeno padding */
+    background-color: var(--color-orange-fire); /* Cor de destaque para o idioma ativo */
+    border-radius: 20px;
+    transition: left 0.3s ease; /* Animação de deslizamento */
+    z-index: 0;
+}
+
+/* Posição do indicador para Português (padrão) */
+.language-toggle-btn.pt::before {
+    left: 2px;
+}
+
+/* Posição do indicador para Inglês */
+.language-toggle-btn.en::before {
+    left: calc(50% - 2px);
+}
+
+/* Cor do texto do idioma ativo */
+.language-toggle-btn.pt .lang-text[data-lang="pt"],
+.language-toggle-btn.en .lang-text[data-lang="en"] {
+    color: var(--color-white); /* Texto branco para o idioma ativo */
+}
+
+.compass-nav {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 50px;
+    padding: 10px 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border: 2px solid var(--color-green-moss);
+}
+
+body.dark-mode .compass-nav {
+    background-color: rgba(10, 17, 40, 0.9);
+    border-color: var(--color-gold-yellow);
+}
+
+.nav-item {
+    text-decoration: none;
+    color: var(--color-dark-text);
+    font-weight: 600;
+    padding: 5px 10px;
+    border-radius: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    position: relative; /* Para o tooltip */
+}
+
+body.dark-mode .nav-item {
+    color: var(--color-light-text);
+}
+
+.nav-item:hover, .nav-item.active {
+    background-color: var(--color-orange-fire);
+    color: var(--color-white);
+}
+
+/* Tooltip para navegação */
+.nav-item::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    right: calc(100% + 10px); /* Posição à esquerda do item */
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--color-dark-text);
+    color: var(--color-white);
+    padding: 5px 10px;
+    border-radius: 5px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+body.dark-mode .nav-item::after {
+    background-color: var(--color-light-text);
+    color: var(--color-dark-text);
+}
+
+.nav-item:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* Botão de Tema */
+.theme-toggle-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+    background-color: var(--color-light-gray);
+    box-shadow: 0 2px 5px rgba(0,0,0,1);
+    transition: background-color 0.3s ease;
+}
+
+body.dark-mode .theme-toggle-btn {
+    background-color: var(--color-dark-blue);
+}
+
+.theme-toggle-btn img {
+    width: 30px;
+    height: 30px;
+    transition: opacity 0.3s ease;
+}
+
+.theme-toggle-btn .icon-light {
+    display: block;
+}
+
+.theme-toggle-btn .icon-dark {
+    display: none;
+}
+
+body.dark-mode .theme-toggle-btn .icon-light {
+    display: none;
+}
+
+body.dark-mode .theme-toggle-btn .icon-dark {
+    display: block;
+}
+
+
+/* Seções da Jornada */
+.journey-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.journey-section {
+    min-height: 100vh; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 20px;
+    position: relative;
+}
+
+.section-title {
+    font-family: 'Merriweather', serif;
+    font-size: 3em;
+    margin-bottom: 40px;
+    color: var(--color-green-moss);
+    text-align: center;
+}
+
+body.dark-mode .section-title {
+    color: var(--color-gold-yellow);
+}
+
+.section-content {
+    max-width: 800px;
+    text-align: center;
+}
+
+.path-marker {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 80px;
+    background-color: var(--color-earth-brown);
+    border-left: 2px dashed var(--color-earth-brown);
+    border-right: 2px dashed var(--color-earth-brown);
+    animation: pulse-marker 2s infinite alternate;
+}
+
+body.dark-mode .path-marker {
+    background-color: var(--color-light-gray);
+    border-color: var(--color-light-gray);
+}
+
+@keyframes pulse-marker {
+    from { transform: translateX(-50%) scaleY(1); opacity: 1; }
+    to { transform: translateX(-50%) scaleY(1.2); opacity: 0.8; }
+}
+
+
+/* Seção Intro */
+.intro-section {
+    text-align: center;
+}
+
+.intro-section .subtitle {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+    color: var(--color-earth-brown);
+}
+
+body.dark-mode .intro-section .subtitle {
+    color: var(--color-light-gray);
+}
+
+.profile-photo-container {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 30px;
+}
+
+.profile-photo {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid var(--color-orange-fire); 
+    box-shadow: 0 0 15px rgba(229, 127, 46, 0.5);
+}
+
+.photo-border-effect {
+    position: absolute;
+    top: -11px;
+    left: -10px;
+    right: -10px;
+    bottom: -5px;
+    border: 2px dashed var(--color-gold-yellow);
+    border-radius: 50%;
+    animation: rotateBorder 20s linear infinite;
+}
+
+@keyframes rotateBorder {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.intro-text {
+    font-size: 1.1em;
+    max-width: 600px;
+    margin: 0 auto 40px;
+}
+
+.btn-explore {
+    display: inline-block;
+    background-color: var(--color-orange-fire);
+    color: var(--color-white);
+    padding: 15px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-explore:hover {
+    background-color: var(--color-gold-yellow);
+    transform: translateY(-3px);
+}
+
+/* Seção Sobre Mim */
+.about-section .about-grid {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    text-align: left;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.about-section .about-photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 8px;
+    object-fit: cover;
+    border: 3px solid var(--color-green-moss);
+}
+
+body.dark-mode .about-section .about-photo {
+    border-color: var(--color-light-gray);
+}
+
+.about-section .about-text {
+    flex: 1;
+    font-size: 1.1em;
+}
+
+/* Seção Habilidades */
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.skill-badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--color-white);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid var(--color-light-gray);
+}
+
+body.dark-mode .skill-badge {
+    background-color: var(--color-green-moss);
+    border-color: var(--color-dark-blue);
+    color: var(--color-white);
+}
+
+.skill-badge:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.skill-badge img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+.skill-badge span {
+    font-weight: 600;
+    font-size: 1.1em;
+}
+
+/* Seção Projetos */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.project-card {
+    background-color: var(--color-white);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    color: var(--color-dark-text);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid var(--color-light-gray);
+}
+
+body.dark-mode .project-card {
+    background-color: var(--color-dark-blue);
+    border-color: var(--color-green-moss);
+    color: var(--color-light-text);
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.project-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-bottom: 1px solid var(--color-light-gray);
+}
+
+body.dark-mode .project-card img {
+    border-color: var(--color-green-moss);
+}
+
+.project-card h3 {
+    font-family: 'Merriweather', serif;
+    font-size: 1.5em;
+    margin: 15px 15px 10px;
+    color: var(--color-green-moss);
+}
+
+body.dark-mode .project-card h3 {
+    color: var(--color-gold-yellow);
+}
+
+.project-card p {
+    font-size: 0.95em;
+    padding: 0 15px 15px;
+}
+
+/* Seção Contato */
+.contact-section .contact-info {
+    margin-top: 30px;
+    font-size: 1.1em;
+}
+
+.contact-section .contact-info p {
+    margin-bottom: 10px;
+}
+
+.projects{
+    display: flex;
+    flex-direction: row;
+    
+        & .projects-grid{ 
+            margin: 0 20px;
+        }
+
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .main-header {
+        flex-direction: row; /* Coloca os controles na mesma linha em mobile */
+        width: 100%;
+        justify-content: space-between;
+        padding: 10px 15px;
+        top: 0;
+        right: 0;
+        transform: translateX(0); /* Remove a translação */
+        background: rgba(255, 255, 255, 0.9); /* Fundo para nav e controles */
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    body.dark-mode .main-header {
+        background: rgba(10, 17, 40, 0.9);
+    }
+
+    .compass-nav {
+        background: none; /* Remove background da nav individualmente */
+        box-shadow: none;
+        border: none;
+        flex-grow: 1; /* Permite que a nav ocupe espaço */
+        justify-content: flex-start;
+        flex-wrap: wrap; /* Permite quebrar linha para os itens da nav */
+    }
+
+    .header-controls {
+        flex-shrink: 0; /* Impede que os controles encolham demais */
+    }
+
+    .nav-item {
+        font-size: 0.9em;
+        padding: 5px 8px;
+    }
+
+    .nav-item::after { /* Esconder tooltip em mobile */
+        display: none;
+    }
+
+    .theme-toggle-btn {
+        padding: 8px;
+    }
+
+    .theme-toggle-btn img {
+        width: 25px;
+        height: 25px;
+    }
+
+    .journey-section {
+        padding: 60px 15px;
+        min-height: auto; /* Permite que a seção seja menor que a viewport em mobile */
+    }
+
+    .section-title {
+        font-size: 2.2em;
+        margin-bottom: 30px;
+    }
+
+    .intro-section .subtitle {
+        font-size: 1.2em;
+    }
+
+    .profile-photo {
+        width: 180px;
+        height: 180px;
+    }
+
+    .profile-photo-container {
+        margin-bottom: 20px;
+    }
+
+    .btn-explore {
+        padding: 12px 25px;
+        font-size: 0.95em;
+    }
+
+    .about-section .about-grid {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .about-section .about-photo {
+        width: 150px;
+        height: 150px;
+    }
+
+    .about-section .about-text {
+        font-size: 1em;
+    }
+
+    .skills-grid {
+        gap: 20px;
+    }
+
+    .skill-badge {
+        padding: 15px;
+    }
+
+    .skill-badge img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .skill-badge span {
+        font-size: 1em;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr; /* Uma coluna em telas menores */
+    }
+
+    .project-card h3 {
+        font-size: 1.3em;
+    }
+
+    .project-card p {
+        font-size: 0.9em;
+    }
+
+    .contact-section .contact-info {
+        font-size: 1em;
+    }
+}
