@@ -78,26 +78,11 @@ Este é um projeto **principalmente estático** (HTML, CSS, JavaScript) e não r
     * Você pode simplesmente abrir o arquivo `index.html` diretamente no seu navegador. Navegue até a pasta onde clonou o projeto e clique duas vezes em `index.html`.
     * **Alternativa (Recomendada para desenvolvimento):** Use uma extensão como "Live Server" no VS Code ou inicie um servidor HTTP simples na pasta raiz do projeto. Isso garante que todos os caminhos de recursos (CSS, JS, Imagens) sejam carregados corretamente.
 
-### Estrutura de Pastas
-
-├── index.html
-├── src/
-│   ├── css/
-│   │   └── styles.css
-│   ├── img/
-│   │   ├── badge-css.png
-│   │   ├── badge-git.png
-│   │   ├── ... (outras imagens)
-│   └── js/
-│       └── script.js
-└── README.md
-
----
 
 ## 🎯 Melhorias Futuras (Roadmap)
 
 * **Adicionar mais projetos:** Expandir a seção de projetos com mais exemplos de trabalhos.
-* **Formulário de Contato Dinâmico:** Implementar um formulário de contato funcional que envie e-mails ou salve mensagens em um banco de dados (requer backend PHP/Node.js).
+* **Formulário de Contato Dinâmico:** Implementar um formulário de contato funcional que envie e-mails ou salve mensagens em um banco de dados.
 * **Otimização de Performance:** Melhorar o carregamento de imagens e assets para maior velocidade.
 * **Animações Adicionais:** Adicionar mais micro-interações e animações para uma experiência ainda mais rica.
 
