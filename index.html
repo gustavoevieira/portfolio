@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-key="pageTitle">Gustavo Vieira - A Jornada do Desenvolvedor Desbravador</title>
     <link rel="stylesheet" href="src/css/styles.css">
     <link rel="shortcut icon" href="src/img/compass-favicon.png" type="image/x-icon">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Open+Sans:wght@400;600&display=swap"
+        rel="stylesheet">
 </head>
+
 <body class="light-mode">
 
     <header class="main-header">
-        <nav class="compass-nav">
-            <a href="#intro" class="nav-item active" data-key="navIntro" data-tooltip-key="tooltipIntro" data-tooltip="Início da Trilha">Início</a>
-            <a href="#about" class="nav-item" data-key="navAbout" data-tooltip-key="tooltipAbout" data-tooltip="Acampamento Base">Sobre Mim</a>
-            <a href="#skills" class="nav-item" data-key="navSkills" data-tooltip-key="tooltipSkills" data-tooltip="Mapa de Habilidades">Habilidades</a>
-            <a href="#projects" class="nav-item" data-key="navProjects" data-tooltip-key="tooltipProjects" data-tooltip="Descobertas na Jornada">Projetos</a>
-            <a href="#contact" class="nav-item" data-key="navContact" data-tooltip-key="tooltipContact" data-tooltip="Ponto de Encontro">Contato</a>
-        </nav>
         <div class="header-controls">
+            <button id="menuToggle" class="control-btn menu-toggle-btn">
+                <span class="bar"></span>
+                <!-- <span class="bar"></span> -->
+                <span class="bar"></span>
+            </button>
             <button id="themeToggle" class="control-btn theme-toggle-btn">
                 <img src="src/img/sun-icon.png" alt="Modo Claro" class="icon-light">
                 <img src="src/img/campfire-icon.png" alt="Modo Escuro" class="icon-dark">
@@ -28,6 +29,19 @@
                 <span class="lang-text" data-lang="pt">PT</span>
                 <span class="lang-text" data-lang="en">EN</span>
             </button>
+        </div>
+        <div class="nav-wrapper">
+            <nav class="compass-nav">
+                <a href="#intro" class="nav-item active" data-key="navIntro" data-tooltip-key="tooltipIntro">Início</a>
+                <a href="#about" class="nav-item" data-key="navAbout" data-tooltip-key="tooltipAbout">Sobre Mim</a>
+                <a href="#skills" class="nav-item" data-key="navSkills" data-tooltip-key="tooltipSkills">Habilidades</a>
+                <a href="#learning" class="nav-item" data-key="navLearning"
+                    data-tooltip-key="tooltipLearning">Aprendizado</a>
+                <a href="#stack" class="nav-item" data-key="navStack" data-tooltip-key="tooltipStack">Stack</a>
+                <a href="#projects" class="nav-item" data-key="navProjects"
+                    data-tooltip-key="tooltipProjects">Projetos</a>
+                <a href="#contact" class="nav-item" data-key="navContact" data-tooltip-key="tooltipContact">Contato</a>
+            </nav>
         </div>
     </header>
 
@@ -40,18 +54,28 @@
                     <img src="src/img/Gustavo imagem.jpg" alt="Foto de Gustavo Eudes Vieira" class="profile-photo">
                     <span class="photo-border-effect"></span>
                 </div>
-                <p class="intro-text" data-key="introText">Bem-vindo à minha jornada como desenvolvedor web. Prepare-se para explorar!</p>
+                <p class="intro-text" data-key="introText">Bem-vindo à minha jornada como desenvolvedor web. Prepare-se
+                    para explorar!</p>
                 <a href="#about" class="btn-explore" data-key="exploreButton">Iniciar Expedição</a>
             </div>
-            <div class="path-marker"></div> 
+            <div class="path-marker"></div>
         </section>
 
         <section id="about" class="journey-section about-section">
             <div class="section-content">
-                <h2 class="section-title" data-key="aboutTitle"></h2>
+                <h2 class="section-title" data-key="aboutTitle">Sobre Mim</h2>
                 <div class="about-grid">
-                    <img src="src/img/Me.jpg.png" alt="Gustavo Vieira" class="about-photo">
-                    <p class="about-text" data-key="aboutText">Minha paixão por **exploração e aprendizado contínuo**, cultivada durante anos como Desbravador, se reflete diretamente na minha jornada como desenvolvedor web. Assim como aprendi a navegar por trilhas e resolver desafios em acampamentos, busco sempre as melhores rotas e soluções para os problemas no código. Valores como **disciplina, trabalho em equipe e resiliência**, desenvolvidos no Clube de Desbravadores, são pilares fundamentais na minha abordagem de projetos, garantindo que eu esteja sempre pronto para enfrentar novos desafios e colaborar de forma eficiente.</p>
+                    <p class="about-text" data-key="aboutText">
+                        Sou Gustavo Vieira, estudante de Engenharia de Software e apaixonado por tecnologia, aprendizado
+                        prático e desafios reais. Após anos atuando fora da área, decidi trilhar meu caminho no
+                        desenvolvimento web com foco em evolução constante e projetos que gerem impacto. Minha
+                        experiência como Desbravador moldou valores como **resiliência, disciplina e trabalho em
+                        equipe**, que carrego em cada linha de código. Tenho domínio em **HTML e
+                        CSS**, com boas noções de **JavaScript e Python**, e estou sempre
+                        explorando novas ferramentas e tecnologias. Com uma abordagem prática e autodidata, acredito que
+                        a melhor forma de aprender é construindo. Este portfólio é parte dessa jornada – seja
+                        bem-vindo(a)!
+                    </p>
                 </div>
             </div>
             <div class="path-marker"></div>
@@ -74,8 +98,8 @@
                         <span data-key="skillJs">JavaScript</span>
                     </div>
                     <div class="skill-badge">
-                        <img src="src/img/badge-php.png" alt="React Badge">
-                        <span data-key="skillReact">php</span>
+                        <img src="src/img/badge-php.png" alt="PHP Badge">
+                        <span data-key="skillPhp">PHP</span>
                     </div>
                     <div class="skill-badge">
                         <img src="src/img/badge-node.png" alt="Node.js Badge">
@@ -85,7 +109,7 @@
                         <img src="src/img/badge-python.png" alt="Python Badge">
                         <span data-key="skillPython">Python</span>
                     </div>
-                     <div class="skill-badge">
+                    <div class="skill-badge">
                         <img src="src/img/badge-git.png" alt="Git Badge">
                         <span data-key="skillGit">Git</span>
                     </div>
@@ -94,10 +118,32 @@
                         <span data-key="skillGithub">GitHub</span>
                     </div>
                     <div class="skill-badge">
-                        <img src="src/img/badge-mysql.png" alt="Next.js Badge">
-                        <span data-key="skillNextjs">MySQL</span>
+                        <img src="src/img/badge-mysql.png" alt="MySQL Badge">
+                        <span data-key="skillMysql">MySQL</span>
                     </div>
                 </div>
+            </div>
+            <div class="path-marker"></div>
+        </section>
+
+        <section id="learning" class="journey-section learning-section">
+            <div class="section-content">
+                <h2 class="section-title" data-key="lerningTitle">Em Desenvolvimento</h2>
+                <p data-key="lerningText">Atualmente estou desenvolvendo um sistema de chatbot com integração via
+                    WhatsApp e banco de dados
+                    Firebird, além de aprimorar meus conhecimentos em **Redes de Computadores** e
+                    **Estatística Aplicada**.</p>
+            </div>
+            <div class="path-marker"></div>
+        </section>
+
+        <section id="stack" class="journey-section stack-section">
+            <div class="section-content">
+                <h2 class="section-title" data-key="stackTitle">Stack Favorita</h2>
+                <p data-key="stackText">Tenho mais familiaridade com o ecossistema web, utilizando **HTML, CSS,
+                    JavaScript** no
+                    frontend e **Python, PHP e MySQL** no backend. Também gosto de explorar soluções com
+                    **Node.js** e estou aprendendo **Flutter** para aplicações móveis.</p>
             </div>
             <div class="path-marker"></div>
         </section>
@@ -107,38 +153,30 @@
                 <h2 class="section-title" data-key="projectsTitle">Descobertas na Jornada</h2>
                 <div class="projects">
                     <div class="projects-grid">
-                        <a href="https://gustavoevieira.github.io/guerreirosdoplanalto/" target="_blank" class="project-card">
-                            <img src="src/img/dbv-gp.jpg" alt="Miniatura do projeto Guerreiros do Planalto">
-                            <h3 data-key="projGgpTitle">Guerreiros do Planalto</h3>
-                            <p data-key="projGgpDesc">Site para o Clube de Desbravadores Guerreiros do Planalto.</p>
+                        <a href="https://github.com/gustavoevieira/noticias" target="_blank" class="project-card">
+                            <img src="src/img/news.jpg" alt="Miniatura do projeto Portal de Notícias">
+                            <h3 data-key="projSdnTitle">Portal de Notícias</h3>
+                            <p data-key="projSdnDesc">Portal completo com painel administrativo em PHP/MySQL. Permite a
+                                criação, edição e exclusão de conteúdos, além de exibição pública com foco em
+                                acessibilidade e leveza.</p>
                         </a>
-                        <a href="https://gustavoevieira.github.io/guardioesdourados/" target="_blank" class="project-card">
-                            <img src="src/img/dbv-gd.jpg" alt="Miniatura do projeto Guardiões Dourados">
+                        <a href="https://gustavoevieira.github.io/guardioesdourados/" target="_blank"
+                            class="project-card">
+                            <img src="src/img/gdclub.jpg" alt="Miniatura do site Guardiões Dourados">
                             <h3 data-key="projGgdhTitle">Guardiões Dourados</h3>
-                            <p data-key="projGgdhDesc">Site desenvolvido para o Clube de Desbravadores Guardiões Dourados.</p>
+                            <p data-key="projGgdhDesc">Site institucional responsivo para o Clube de Desbravadores
+                                Guardiões Dourados, criado com foco em identidade visual e navegação fluida.</p>
                         </a>
                         <a href="https://github.com/gustavoevieira" target="_blank" class="project-card">
-                            <img src="src/img/github-logo.png" alt="Logo do GitHub">
+                            <img src="src/img/badge-github.png" alt="Logo do GitHub" style="width: fit-content;">
                             <h3 data-key="projGithubTitle">Ver mais!</h3>
                             <p data-key="projGithubDesc">Acesse outros projetos no GitHub.</p>
                         </a>
-                    </div>
-                    <div class="projects-grid">
-                        <a href="https://gustavoevieira.github.io/guerreirosdoplanalto/" target="_blank" class="project-card">
-                            <img src="src/img/dbv-gp.jpg" alt="Miniatura do projeto Guerreiros do Planalto">
-                            <h3 data-key="projGgpTitle">Guerreiros do Planalto</h3>
-                            <p data-key="projGgpDesc">Site para o Clube de Desbravadores Guerreiros do Planalto.</p>
-                        </a>
-                        <a href="https://gustavoevieira.github.io/guardioesdourados/" target="_blank" class="project-card">
-                            <img src="src/img/dbv-gd.jpg" alt="Miniatura do projeto Guardiões Dourados">
-                            <h3 data-key="projGgdhTitle">Guardiões Dourados</h3>
-                            <p data-key="projGgdhDesc">Site desenvolvido para o Clube de Desbravadores Guardiões Dourados.</p>
-                        </a>
                         <a href="https://github.com/gustavoevieira" target="_blank" class="project-card">
-                            <img src="src/img/github-logo.png" alt="Logo do GitHub">
+                            <img src="src/img/badge-github.png" alt="Logo do GitHub" style="width: fit-content;">
                             <h3 data-key="projGithubTitle">Ver mais!</h3>
                             <p data-key="projGithubDesc">Acesse outros projetos no GitHub.</p>
-                        </a>
+                        </a><br>
                     </div>
                 </div>
             </div>
@@ -148,11 +186,17 @@
         <section id="contact" class="journey-section contact-section">
             <div class="section-content">
                 <h2 class="section-title" data-key="contactTitle">Ponto de Encontro</h2>
-                <p data-key="contactInvite">Vamos acampar juntos em um novo projeto?</p>
+                <p data-key="contactInvite">Vamos desbravar um novo projeto?</p>
                 <div class="contact-info">
-                    <p data-key="contactEmail">Email: <a href="mailto:gustavo-ev@outlook.com">gustavo-ev@outlook.com</a></p>
-                    <p data-key="contactLinkedin">LinkedIn: <a href="https://www.linkedin.com/in/gustavo-ev" target="_blank">Gustavo Eudes Vieira</a></p>
-                    <p data-key="contactGithub">GitHub: <a href="https://github.com/gustavoevieira" target="_blank">gustavoevieira</a></p>
+                    <p data-key="contactEmail">Email: <a href="mailto:gustavo-ev@outlook.com">gustavo-ev@outlook.com</a>
+                    </p>
+                    <p data-key="contactLinkedin">LinkedIn: <a href="https://www.linkedin.com/in/gustavo-ev"
+                            target="_blank">Gustavo Eudes Vieira</a></p>
+                    <p data-key="contactGithub">GitHub: <a href="https://github.com/gustavoevieira"
+                            target="_blank">gustavoevieira</a></p>
+                    <p data-key="whoPath">Quem são os Desbravadores?</p><a data-key="findHere"
+                        href="https://www.adventistas.org/pt/desbravadores/quem-somos/" target="_blank"> Descubra
+                        aqui!</a>
                 </div>
             </div>
         </section>
@@ -160,4 +204,5 @@
 
     <script src="src/js/script.js"></script>
 </body>
+
 </html>

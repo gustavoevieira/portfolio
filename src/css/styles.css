@@ -1,7 +1,7 @@
 :root {
-    --color-dark-blue: #0A1128; 
+    --color-dark-blue: #0A1128;
     --color-green-moss: #3A5743;
-    --color-earth-brown: #6F4E37; 
+    --color-earth-brown: #6F4E37;
     --color-orange-fire: #E57F2E;
     --color-gold-yellow: #F5B700;
     --color-white: #FFFFFF;
@@ -28,7 +28,7 @@ body {
     color: var(--color-dark-text);
     background-color: var(--color-off-white);
     transition: background-color 0.5s ease, color 0.5s ease;
-    overflow-x: hidden; /* Evita rolagem horizontal */
+    overflow-x: hidden;
 }
 
 /* Modo Light */
@@ -47,6 +47,10 @@ body.dark-mode {
     color: var(--color-light-text);
 }
 
+body.dark-mode .btn-explore {
+    color: var(--color-light-text);
+}
+
 body.dark-mode a {
     color: var(--color-gold-yellow);
 }
@@ -59,13 +63,13 @@ body.dark-mode a {
     z-index: 1000;
     display: flex;
     flex-direction: column;
-    align-items: flex-end; /* Alinha os itens à direita */
+    align-items: flex-end;
     gap: 15px;
 }
 
-.header-controls { /* Novo wrapper para agrupar os botões de controle */
+.header-controls {
     display: flex;
-    gap: 10px; /* Espaçamento entre os botões */
+    gap: 10px;
     align-items: center;
 }
 
@@ -76,7 +80,7 @@ body.dark-mode a {
     padding: 10px;
     border-radius: 50%;
     background-color: var(--color-light-gray);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
@@ -90,16 +94,16 @@ body.dark-mode .control-btn {
 
 /* Botão de Idioma */
 .language-toggle-btn {
-    width: 60px; /* Largura para acomodar "PT" e "EN" */
-    border-radius: 25px; /* Bordas arredondadas como um pílula */
+    width: 60px;
+    border-radius: 25px;
     display: flex;
     justify-content: space-around;
     align-items: center;
     padding: 5px;
     background-color: var(--color-light-gray);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    position: relative; /* Para o indicador de idioma ativo */
-    overflow: hidden; /* Para esconder o que transborda do background ativo */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
 }
 
 body.dark-mode .language-toggle-btn {
@@ -113,7 +117,7 @@ body.dark-mode .language-toggle-btn {
     padding: 5px;
     width: 50%;
     text-align: center;
-    z-index: 1; /* Para o texto ficar acima do background ativo */
+    z-index: 1;
     transition: color 0.3s ease;
 }
 
@@ -121,36 +125,33 @@ body.dark-mode .language-toggle-btn .lang-text {
     color: var(--color-light-text);
 }
 
-/* Indicador de idioma ativo */
 .language-toggle-btn::before {
     content: '';
     position: absolute;
     top: 2px;
     bottom: 2px;
-    width: calc(50% - 2px); /* Metade da largura do botão menos um pequeno padding */
-    background-color: var(--color-orange-fire); /* Cor de destaque para o idioma ativo */
+    width: calc(50% - 2px);
+    background-color: var(--color-orange-fire);
     border-radius: 20px;
-    transition: left 0.3s ease; /* Animação de deslizamento */
+    transition: left 0.3s ease;
     z-index: 0;
 }
 
-/* Posição do indicador para Português (padrão) */
 .language-toggle-btn.pt::before {
     left: 2px;
 }
 
-/* Posição do indicador para Inglês */
 .language-toggle-btn.en::before {
     left: calc(50% - 2px);
 }
 
-/* Cor do texto do idioma ativo */
 .language-toggle-btn.pt .lang-text[data-lang="pt"],
 .language-toggle-btn.en .lang-text[data-lang="en"] {
-    color: var(--color-white); /* Texto branco para o idioma ativo */
+    color: var(--color-white);
 }
 
-.compass-nav {
+/* Nav Wrapper para controle do menu expandido/contraído */
+.nav-wrapper {
     background-color: rgba(255, 255, 255, 0.9);
     border-radius: 50px;
     padding: 10px 20px;
@@ -161,9 +162,15 @@ body.dark-mode .language-toggle-btn .lang-text {
     border: 2px solid var(--color-green-moss);
 }
 
-body.dark-mode .compass-nav {
+body.dark-mode .nav-wrapper {
     background-color: rgba(10, 17, 40, 0.9);
     border-color: var(--color-gold-yellow);
+}
+
+.compass-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
 .nav-item {
@@ -173,23 +180,24 @@ body.dark-mode .compass-nav {
     padding: 5px 10px;
     border-radius: 20px;
     transition: background-color 0.3s ease, color 0.3s ease;
-    position: relative; /* Para o tooltip */
+    position: relative;
 }
 
 body.dark-mode .nav-item {
     color: var(--color-light-text);
 }
 
-.nav-item:hover, .nav-item.active {
+.nav-item:hover,
+.nav-item.active {
     background-color: var(--color-orange-fire);
     color: var(--color-white);
 }
 
-/* Tooltip para navegação */
+/* Tooltip para navegação (mantido para desktop) */
 .nav-item::after {
     content: attr(data-tooltip);
     position: absolute;
-    right: calc(100% + 10px); /* Posição à esquerda do item */
+    right: calc(100% + 10px);
     top: 50%;
     transform: translateY(-50%);
     background-color: var(--color-dark-text);
@@ -212,7 +220,6 @@ body.dark-mode .nav-item::after {
     visibility: visible;
 }
 
-
 /* Botão de Tema */
 .theme-toggle-btn {
     background: none;
@@ -221,7 +228,7 @@ body.dark-mode .nav-item::after {
     padding: 10px;
     border-radius: 50%;
     background-color: var(--color-light-gray);
-    box-shadow: 0 2px 5px rgba(0,0,0,1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 1);
     transition: background-color 0.3s ease;
 }
 
@@ -251,7 +258,6 @@ body.dark-mode .theme-toggle-btn .icon-dark {
     display: block;
 }
 
-
 /* Seções da Jornada */
 .journey-container {
     width: 100%;
@@ -261,7 +267,7 @@ body.dark-mode .theme-toggle-btn .icon-dark {
 }
 
 .journey-section {
-    min-height: 100vh; 
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -306,10 +312,16 @@ body.dark-mode .path-marker {
 }
 
 @keyframes pulse-marker {
-    from { transform: translateX(-50%) scaleY(1); opacity: 1; }
-    to { transform: translateX(-50%) scaleY(1.2); opacity: 0.8; }
-}
+    from {
+        transform: translateX(-50%) scaleY(1);
+        opacity: 1;
+    }
 
+    to {
+        transform: translateX(-50%) scaleY(1.2);
+        opacity: 0.8;
+    }
+}
 
 /* Seção Intro */
 .intro-section {
@@ -337,7 +349,7 @@ body.dark-mode .intro-section .subtitle {
     height: 250px;
     border-radius: 50%;
     object-fit: cover;
-    border: 5px solid var(--color-orange-fire); 
+    border: 5px solid var(--color-orange-fire);
     box-shadow: 0 0 15px rgba(229, 127, 46, 0.5);
 }
 
@@ -353,8 +365,13 @@ body.dark-mode .intro-section .subtitle {
 }
 
 @keyframes rotateBorder {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 .intro-text {
@@ -378,6 +395,10 @@ body.dark-mode .intro-section .subtitle {
 .btn-explore:hover {
     background-color: var(--color-gold-yellow);
     transform: translateY(-3px);
+}
+
+.menu-toggle-btn {
+    display: none;
 }
 
 /* Seção Sobre Mim */
@@ -518,58 +539,155 @@ body.dark-mode .project-card h3 {
     margin-bottom: 10px;
 }
 
-.projects{
+.projects {
     display: flex;
     flex-direction: row;
-    
-        & .projects-grid{ 
-            margin: 0 20px;
-        }
+
+    & .projects-grid {
+        margin: 0 20px;
+    }
 
 }
 
 /* Responsividade */
 @media (max-width: 768px) {
     .main-header {
-        flex-direction: row; /* Coloca os controles na mesma linha em mobile */
+        flex-direction: column;
         width: 100%;
-        justify-content: space-between;
-        padding: 10px 15px;
+        justify-content: flex-start;
+        padding: 0;
         top: 0;
         right: 0;
-        transform: translateX(0); /* Remove a translação */
-        background: rgba(255, 255, 255, 0.9); /* Fundo para nav e controles */
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        position: fixed;
+        background: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        align-items: center;
+        height: auto;
+        min-height: 60px;
+        overflow: hidden;
     }
 
     body.dark-mode .main-header {
         background: rgba(10, 17, 40, 0.9);
     }
 
-    .compass-nav {
-        background: none; /* Remove background da nav individualmente */
-        box-shadow: none;
-        border: none;
-        flex-grow: 1; /* Permite que a nav ocupe espaço */
-        justify-content: flex-start;
-        flex-wrap: wrap; /* Permite quebrar linha para os itens da nav */
+    .header-controls {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        padding: 10px 15px;
+        align-items: center;
+        min-height: 60px;
+        box-sizing: border-box;
     }
 
-    .header-controls {
-        flex-shrink: 0; /* Impede que os controles encolham demais */
+    .path-marker {
+        margin-bottom: -20px;
+        height: 30px;
+    }
+
+    .menu-toggle-btn {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        position: relative;
+        z-index: 10;
+    }
+
+    .menu-toggle-btn .bar {
+        width: 70%;
+        height: 3px;
+        margin: 2px;
+        background-color: var(--color-dark-text);
+        border-radius: 2px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .menu-toggle-btn.menu-toggle-btn.active-menu {
+        rotate: 90deg;
+        transition: all 0.3s ease-in-out;
+    }
+
+    body.dark-mode .menu-toggle-btn .bar {
+        background-color: var(--color-light-text);
+    }
+
+    .menu-toggle-btn.active-menu .bar:nth-child(1) {
+        transform: translateY(10px) rotate(45deg);
+    }
+
+    .menu-toggle-btn.active-menu .bar:nth-child(2) {
+        transform: translateY(-10px) rotate(-45deg);
+    }
+
+    body {
+        padding-top: 60px;
+    }
+
+    .nav-wrapper {
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+        background: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        border-radius: 0;
+        border: none;
+    }
+
+    body.dark-mode .nav-wrapper {
+        background: rgba(10, 17, 40, 0.9);
+    }
+
+    .nav-wrapper.open {
+        max-height: 500px;
+    }
+
+    .compass-nav {
+        background: none;
+        box-shadow: none;
+        border: none;
+        flex-grow: 1;
+        flex-wrap: nowrap;
+        overflow-x: hidden;
+        padding: 0 15px 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
     }
 
     .nav-item {
-        font-size: 0.9em;
-        padding: 5px 8px;
+        font-size: 1em;
+        padding: 12px 10px;
+        width: 100%;
+        border-bottom: 1px solid var(--color-light-gray);
+        border-radius: 0;
+        text-align: left;
     }
 
-    .nav-item::after { /* Esconder tooltip em mobile */
+    body.dark-mode .nav-item {
+        border-bottom-color: #333;
+    }
+
+    .nav-item:last-child {
+        border-bottom: none;
+    }
+
+    .nav-item::after {
         display: none;
     }
 
-    .theme-toggle-btn {
+    .theme-toggle-btn,
+    .language-toggle-btn {
         padding: 8px;
+        width: auto;
     }
 
     .theme-toggle-btn img {
@@ -577,9 +695,21 @@ body.dark-mode .project-card h3 {
         height: 25px;
     }
 
+    .language-toggle-btn .lang-text {
+        font-size: 0.8em;
+    }
+
+    body {
+        padding-top: 60px;
+    }
+
     .journey-section {
-        padding: 60px 15px;
-        min-height: auto; /* Permite que a seção seja menor que a viewport em mobile */
+        padding: 40px 15px;
+        min-height: auto;
+    }
+
+    .intro-section {
+        padding-top: 60px;
     }
 
     .section-title {
@@ -638,7 +768,7 @@ body.dark-mode .project-card h3 {
     }
 
     .projects-grid {
-        grid-template-columns: 1fr; /* Uma coluna em telas menores */
+        grid-template-columns: 1fr;
     }
 
     .project-card h3 {
