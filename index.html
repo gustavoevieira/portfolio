@@ -4,12 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-key="pageTitle">Gustavo Vieira - A Jornada do Desenvolvedor Desbravador</title>
+    <title data-key="pageTitle">Gustavo Vieira - A Jornada do Desenvolvedor</title>
     <link rel="stylesheet" href="src/css/styles.css">
+    <link rel="stylesheet" href="test.css">
     <link rel="shortcut icon" href="src/img/compass-favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Open+Sans:wght@400;600&display=swap"
         rel="stylesheet">
+    <link rel="shortcut icon" href="src/img/logo.png" type="image/x-icon">
 </head>
 
 <body class="light-mode">
@@ -85,41 +88,284 @@
             <div class="section-content">
                 <h2 class="section-title" data-key="skillsTitle">Mapa de Habilidades</h2>
                 <div class="skills-grid">
-                    <div class="skill-badge">
-                        <img src="src/img/badge-html.png" alt="HTML5 Badge">
-                        <span data-key="skillHtml">HTML5</span>
+                    <div class="card skill-card-flip">
+                        <div class="content">
+                            <div class="back">
+                                <div class="back-content">
+                                    <img src="src/img/badge-html.png" alt="HTML5 Icon">
+                                    <strong data-key="skillHtmlHover">HTML5</strong>
+                                </div>
+                            </div>
+                            <div class="front">
+                                <div class="img">
+                                    <div class="circle"></div>
+                                    <div class="circle" id="right"></div>
+                                    <div class="circle" id="bottom"></div>
+                                </div>
+                                <div class="front-content">
+                                    <small class="badge" data-key="skillBadgeFrontend">Frontend</small>
+                                    <div class="description">
+                                        <div class="title">
+                                            <p class="title" data-key="skillHtmlTitle">
+                                                <strong>HTML5</strong>
+                                            </p>
+                                            <i class="far fa-bookmark"></i>
+                                        </div>
+                                        <p class="card-footer" data-key="skillHtmlDesc">
+                                            Estruturação Web | Semântica
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="skill-badge">
-                        <img src="src/img/badge-css.png" alt="CSS3 Badge">
-                        <span data-key="skillCss">CSS3</span>
+                    <div class="card skill-card-flip">
+                        <div class="content">
+                            <div class="back">
+                                <div class="back-content">
+                                    <img src="src/img/badge-css.png" alt="CSS3 Icon">
+                                    <strong data-key="skillCssHover">CSS3</strong>
+                                </div>
+                            </div>
+                            <div class="front">
+                                <div class="img">
+                                    <div class="circle"></div>
+                                    <div class="circle" id="right"></div>
+                                    <div class="circle" id="bottom"></div>
+                                </div>
+                                <div class="front-content">
+                                    <small class="badge" data-key="skillBadgeFrontend">Frontend</small>
+                                    <div class="description">
+                                        <div class="title">
+                                            <p class="title" data-key="skillCssTitle">
+                                                <strong>CSS3</strong>
+                                            </p>
+                                            <i class="far fa-bookmark"></i>
+                                        </div>
+                                        <p class="card-footer" data-key="skillCssDesc">
+                                            Estilização | Responsividade
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="skill-badge">
-                        <img src="src/img/badge-js.png" alt="JavaScript Badge">
-                        <span data-key="skillJs">JavaScript</span>
+                    <div class="card skill-card-flip">
+                        <div class="content">
+                            <div class="back">
+                                <div class="back-content">
+                                    <img src="src/img/badge-js.png" alt="JavaScript Icon">
+                                    <strong data-key="skillJsHover">JavaScript</strong>
+                                </div>
+                            </div>
+                            <div class="front">
+                                <div class="img">
+                                    <div class="circle"></div>
+                                    <div class="circle" id="right"></div>
+                                    <div class="circle" id="bottom"></div>
+                                </div>
+                                <div class="front-content">
+                                    <small class="badge" data-key="skillBadgeFrontend">Frontend | Backend</small>
+                                    <div class="description">
+                                        <div class="title">
+                                            <p class="title" data-key="skillJsTitle">
+                                                <strong>JavaScript</strong>
+                                            </p>
+                                            <i class="far fa-bookmark"></i>
+                                        </div>
+                                        <p class="card-footer" data-key="skillJsDesc">
+                                            Interatividade | Lógica
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="skill-badge">
-                        <img src="src/img/badge-php.png" alt="PHP Badge">
-                        <span data-key="skillPhp">PHP</span>
+                    <div class="card skill-card-flip">
+                        <div class="content">
+                            <div class="back">
+                                <div class="back-content">
+                                    <img src="src/img/badge-php.png" alt="PHP Icon">
+                                    <strong data-key="skillPhpHover">PHP</strong>
+                                </div>
+                            </div>
+                            <div class="front">
+                                <div class="img">
+                                    <div class="circle"></div>
+                                    <div class="circle" id="right"></div>
+                                    <div class="circle" id="bottom"></div>
+                                </div>
+                                <div class="front-content">
+                                    <small class="badge" data-key="skillBadgeBackend">Backend</small>
+                                    <div class="description">
+                                        <div class="title">
+                                            <p class="title" data-key="skillPhpTitle">
+                                                <strong>PHP</strong>
+                                            </p>
+                                            <i class="far fa-bookmark"></i>
+                                        </div>
+                                        <p class="card-footer" data-key="skillPhpDesc">
+                                            Web Dev | Servidor
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="skill-badge">
-                        <img src="src/img/badge-node.png" alt="Node.js Badge">
-                        <span data-key="skillNode">Node.js</span>
+                    <div class="card skill-card-flip">
+                        <div class="content">
+                            <div class="back">
+                                <div class="back-content">
+                                    <img src="src/img/badge-node.png" alt="Node.js Icon">
+                                    <strong data-key="skillNodeHover">Node.js</strong>
+                                </div>
+                            </div>
+                            <div class="front">
+                                <div class="img">
+                                    <div class="circle"></div>
+                                    <div class="circle" id="right"></div>
+                                    <div class="circle" id="bottom"></div>
+                                </div>
+                                <div class="front-content">
+                                    <small class="badge" data-key="skillBadgeBackend">Backend</small>
+                                    <div class="description">
+                                        <div class="title">
+                                            <p class="title" data-key="skillNodeTitle">
+                                                <strong>Node.js</strong>
+                                            </p>
+                                            <i class="far fa-bookmark"></i>
+                                        </div>
+                                        <p class="card-footer" data-key="skillNodeDesc">
+                                            Servidor | Aplicações Escaláveis
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="skill-badge">
-                        <img src="src/img/badge-python.png" alt="Python Badge">
-                        <span data-key="skillPython">Python</span>
+                    <div class="card skill-card-flip">
+                        <div class="content">
+                            <div class="back">
+                                <div class="back-content">
+                                    <img src="src/img/badge-python.png" alt="Python Icon">
+                                    <strong data-key="skillPythonHover">Python</strong>
+                                </div>
+                            </div>
+                            <div class="front">
+                                <div class="img">
+                                    <div class="circle"></div>
+                                    <div class="circle" id="right"></div>
+                                    <div class="circle" id="bottom"></div>
+                                </div>
+                                <div class="front-content">
+                                    <small class="badge" data-key="skillBadgeBackend">Backend | Dados</small>
+                                    <div class="description">
+                                        <div class="title">
+                                            <p class="title" data-key="skillPythonTitle">
+                                                <strong>Python</strong>
+                                            </p>
+                                            <i class="far fa-bookmark"></i>
+                                        </div>
+                                        <p class="card-footer" data-key="skillPythonDesc">
+                                            Web | Scripts | Automação
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="skill-badge">
-                        <img src="src/img/badge-git.png" alt="Git Badge">
-                        <span data-key="skillGit">Git</span>
+                    <div class="card skill-card-flip">
+                        <div class="content">
+                            <div class="back">
+                                <div class="back-content">
+                                    <img src="src/img/badge-git.png" alt="Git Icon">
+                                    <strong data-key="skillGitHover">Git</strong>
+                                </div>
+                            </div>
+                            <div class="front">
+                                <div class="img">
+                                    <div class="circle"></div>
+                                    <div class="circle" id="right"></div>
+                                    <div class="circle" id="bottom"></div>
+                                </div>
+                                <div class="front-content">
+                                    <small class="badge" data-key="skillBadgeTools">Ferramentas</small>
+                                    <div class="description">
+                                        <div class="title">
+                                            <p class="title" data-key="skillGitTitle">
+                                                <strong>Git</strong>
+                                            </p>
+                                            <i class="far fa-bookmark"></i>
+                                        </div>
+                                        <p class="card-footer" data-key="skillGitDesc">
+                                            Controle de Versão
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="skill-badge">
-                        <img src="src/img/badge-github.png" alt="GitHub Badge">
-                        <span data-key="skillGithub">GitHub</span>
+                    <div class="card skill-card-flip">
+                        <div class="content">
+                            <div class="back">
+                                <div class="back-content">
+                                    <img src="src/img/badge-github.png" alt="GitHub Icon">
+                                    <strong data-key="skillGithubHover">GitHub</strong>
+                                </div>
+                            </div>
+                            <div class="front">
+                                <div class="img">
+                                    <div class="circle"></div>
+                                    <div class="circle" id="right"></div>
+                                    <div class="circle" id="bottom"></div>
+                                </div>
+                                <div class="front-content">
+                                    <small class="badge" data-key="skillBadgeTools">Ferramentas</small>
+                                    <div class="description">
+                                        <div class="title">
+                                            <p class="title" data-key="skillGithubTitle">
+                                                <strong>GitHub</strong>
+                                            </p>
+                                            <i class="far fa-bookmark"></i>
+                                        </div>
+                                        <p class="card-footer" data-key="skillGithubDesc">
+                                            Colaboração | Repositórios
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="skill-badge">
-                        <img src="src/img/badge-mysql.png" alt="MySQL Badge">
-                        <span data-key="skillMysql">MySQL</span>
+                    <div class="card skill-card-flip">
+                        <div class="content">
+                            <div class="back">
+                                <div class="back-content">
+                                    <img src="src/img/badge-mysql.png" alt="MySQL Icon">
+                                    <strong data-key="skillMysqlHover">MySQL</strong>
+                                </div>
+                            </div>
+                            <div class="front">
+                                <div class="img">
+                                    <div class="circle"></div>
+                                    <div class="circle" id="right"></div>
+                                    <div class="circle" id="bottom"></div>
+                                </div>
+                                <div class="front-content">
+                                    <small class="badge" data-key="skillBadgeDatabase">Banco de Dados</small>
+                                    <div class="description">
+                                        <div class="title">
+                                            <p class="title" data-key="skillMysqlTitle">
+                                                <strong>MySQL</strong>
+                                            </p>
+                                            <i class="far fa-bookmark"></i>
+                                        </div>
+                                        <p class="card-footer" data-key="skillMysqlDesc">
+                                            BD Relacional | SQL
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -148,40 +394,42 @@
             <div class="path-marker"></div>
         </section>
 
-        <section id="projects" class="journey-section projects-section">
+        <section id="projects" class="journey-section projects-section body-projects-section">
             <div class="section-content">
                 <h2 class="section-title" data-key="projectsTitle">Descobertas na Jornada</h2>
                 <div class="projects">
                     <div class="projects-grid">
-                        <a href="https://github.com/gustavoevieira/noticias" target="_blank" class="project-card">
+                        <a href="src/pgs/project-details-news.html" target="_blank" class="project-card">
                             <img src="src/img/news.jpg" alt="Miniatura do projeto Portal de Notícias">
                             <h3 data-key="projSdnTitle">Portal de Notícias</h3>
                             <p data-key="projSdnDesc">Portal completo com painel administrativo em PHP/MySQL. Permite a
                                 criação, edição e exclusão de conteúdos, além de exibição pública com foco em
                                 acessibilidade e leveza.</p>
                         </a>
-                        <a href="https://gustavoevieira.github.io/guardioesdourados/" target="_blank"
-                            class="project-card">
-                            <img src="src/img/gdclub.jpg" alt="Miniatura do site Guardiões Dourados">
-                            <h3 data-key="projGgdhTitle">Guardiões Dourados</h3>
+                        <a href="src/pgs/project-docesabor.html" target="_blank" class="project-card">
+                            <img src="src/img/doceria.jpg" alt="Miniatura do site Guardiões Dourados">
+                            <h3 data-key="projGgdhTitle">Doceria</h3>
                             <p data-key="projGgdhDesc">Site institucional responsivo para o Clube de Desbravadores
                                 Guardiões Dourados, criado com foco em identidade visual e navegação fluida.</p>
                         </a>
-                        <a href="https://github.com/gustavoevieira" target="_blank" class="project-card">
-                            <img src="src/img/badge-github.png" alt="Logo do GitHub" style="width: fit-content;">
-                            <h3 data-key="projGithubTitle">Ver mais!</h3>
-                            <p data-key="projGithubDesc">Acesse outros projetos no GitHub.</p>
+                        <a href="src/pgs/project-ecommerce.html" target="_blank" class="project-card">
+                            <img src="src/img/ecommerce-intro.jpg" alt="Logo do GitHub" style="width: fit-content;">
+                            <h3 data-key="projGithubTitle">E-commerce</h3>
+                            <p data-key="projGithubDesc">Loja online com catálogo, carrinho e painel de produtos (PHP,
+                            MySQL).</p>
                         </a>
-                        <a href="https://github.com/gustavoevieira" target="_blank" class="project-card">
+                        <a href="src/pgs/projects.html" target="_blank" class="project-card">
                             <img src="src/img/badge-github.png" alt="Logo do GitHub" style="width: fit-content;">
-                            <h3 data-key="projGithubTitle">Ver mais!</h3>
-                            <p data-key="projGithubDesc">Acesse outros projetos no GitHub.</p>
+                            <h3 data-key="projSeeMore">Veja mais projetos!</h3>
+                            <p data-key="projSeeMoreDesc">Acesse outros projetos.</p>
                         </a><br>
                     </div>
                 </div>
             </div>
             <div class="path-marker"></div>
         </section>
+
+
 
         <section id="contact" class="journey-section contact-section">
             <div class="section-content">

@@ -1,0 +1,201 @@
+.all-projects-section {
+    min-height: auto;
+    padding-top: calc(80px + var(--spacing-xl));
+    padding-bottom: var(--spacing-xxl);
+    background-color: transparent;
+    box-shadow: none;
+    border-radius: 0;
+    margin-bottom: 0;
+    justify-content: flex-start;
+}
+
+.all-projects-section .section-content {
+    max-width: var(--container-max-width);
+    width: 100%;
+    padding: 0 var(--spacing-md);
+}
+
+.all-projects-section .section-title {
+    font-size: 2.8em;
+    margin-bottom: 15px;
+}
+
+.all-projects-section .section-subtitle {
+    font-size: 1.3em;
+    max-width: 800px;
+    margin: 0 auto 60px;
+    text-align: center;
+    color: var(--color-earth-brown);
+}
+
+body.dark-mode .all-projects-section .section-subtitle {
+    color: var(--color-light-gray);
+}
+
+/* Estilos da grade de projetos */
+.all-projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 0;
+}
+
+.all-projects-grid .project-card {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding-bottom: 20px;
+    background-color: var(--color-white);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border: 2px solid var(--color-light-gray);
+}
+
+body.dark-mode .all-projects-grid .project-card {
+    background-color: var(--color-dark-blue);
+    border-color: var(--color-green-moss);
+}
+
+.all-projects-grid .project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.all-projects-grid .project-card h3 {
+    margin: 15px 15px 10px;
+    color: var(--color-green-moss);
+}
+
+body.dark-mode .all-projects-grid .project-card h3 {
+    color: var(--color-gold-yellow);
+}
+
+.all-projects-grid .project-card p {
+    font-size: 0.95em;
+    padding: 0 15px 15px;
+    flex-grow: 1;
+    color: var(--color-dark-text);
+}
+
+body.dark-mode .all-projects-grid .project-card p {
+    color: var(--color-light-text);
+}
+
+.project-tag {
+    display: inline-block;
+    background-color: var(--color-green-moss);
+    color: var(--color-white);
+    font-size: 0.8em;
+    padding: 5px 10px;
+    border-radius: 3px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    font-weight: 600;
+    margin-left: 15px;
+}
+
+body.dark-mode .project-tag {
+    background-color: var(--color-orange-fire);
+}
+
+.all-projects-grid .project-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-bottom: 1px solid var(--color-light-gray);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+body.dark-mode .all-projects-grid .project-card img {
+    border-color: var(--color-green-moss);
+}
+
+.github-more-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: var(--color-light-gray);
+    border: 2px dashed var(--color-earth-brown);
+}
+
+body.dark-mode .github-more-card {
+    background-color: var(--color-dark-blue);
+    border-color: var(--color-light-gray);
+}
+
+.github-more-card img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 15px;
+    border-bottom: none;
+    border-radius: 0;
+}
+
+.github-more-card h3 {
+    color: var(--color-dark-text);
+}
+
+body.dark-mode .github-more-card h3 {
+    color: var(--color-light-text);
+}
+
+.github-more-card p {
+    font-size: 0.9em;
+    color: var(--color-text-dark);
+}
+
+body.dark-mode .github-more-card p {
+    color: var(--color-light-text);
+}
+
+
+/*Responsividades Todos os Projetos*/
+@media (max-width: 768px) {
+    .all-projects-section {
+        padding-top: calc(60px + var(--spacing-md));
+        padding-bottom: var(--spacing-lg);
+    }
+    .all-projects-section .section-title {
+        font-size: 2.2em;
+        margin-bottom: 30px;
+    }
+    .all-projects-section .section-subtitle {
+        font-size: 1.1em;
+        margin-bottom: 40px;
+    }
+    .all-projects-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .all-projects-grid .project-card {
+        padding-bottom: 15px;
+    }
+    .project-tag {
+        margin-left: 10px;
+        margin-right: 3px;
+    }
+}
+
+@media (max-width: 480px) {
+    .all-projects-section {
+        padding-top: calc(60px + var(--spacing-sm));
+        padding-bottom: var(--spacing-md);
+    }
+    .all-projects-section .section-title {
+        font-size: 1.8em;
+    }
+    .all-projects-section .section-subtitle {
+        font-size: 0.95em;
+        margin-bottom: 30px;
+    }
+    .all-projects-grid .project-card h3 {
+        font-size: 1.3em;
+    }
+    .all-projects-grid .project-card p {
+        font-size: 0.9em;
+    }
+}

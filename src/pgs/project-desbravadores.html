@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-key="pageTitleProjectDetails">Gustavo Vieira - Projeto: Site dos Desbravadores</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="shortcut icon" href="../img/compass-favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Open+Sans:wght@400;600&display=swap"
+        rel="stylesheet">
+    <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon">
+</head>
+
+<body class="light-mode">
+
+    <header class="main-header">
+        <div class="header-controls">
+            <button id="menuToggle" class="control-btn menu-toggle-btn">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <button id="themeToggle" class="control-btn theme-toggle-btn">
+                <img src="../img/sun-icon.png" alt="Modo Claro" class="icon-light">
+                <img src="../img/campfire-icon.png" alt="Modo Escuro" class="icon-dark">
+            </button>
+            <button id="languageToggle" class="control-btn language-toggle-btn">
+                <span class="lang-text" data-lang="pt">PT</span>
+                <span class="lang-text" data-lang="en">EN</span>
+            </button>
+        </div>
+        <div class="nav-wrapper">
+            <nav class="compass-nav">
+                <a href="../../index.html#intro" class="nav-item" data-key="navIntro"
+                    data-tooltip-key="tooltipIntro">Início</a>
+                <a href="../../index.html#about" class="nav-item" data-key="navAbout"
+                    data-tooltip-key="tooltipAbout">Sobre Mim</a>
+                <a href="../../index.html#skills" class="nav-item" data-key="navSkills"
+                    data-tooltip-key="tooltipSkills">Habilidades</a>
+                <a href="../../index.html#learning" class="nav-item" data-key="navLearning"
+                    data-tooltip-key="tooltipLearning">Aprendizado</a>
+                <a href="../../index.html#stack" class="nav-item" data-key="navStack"
+                    data-tooltip-key="tooltipStack">Stack</a>
+                <a href="../../index.html#projects" class="nav-item" data-key="navProjects"
+                    data-tooltip-key="tooltipProjects">Projetos</a>
+                <a href="../../index.html#contact" class="nav-item" data-key="navContact"
+                    data-tooltip-key="tooltipContact">Contato</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="journey-container">
+        <section id="project-details" class="journey-section project-details-section">
+            <div class="section-content">
+                <h2 class="section-title" data-key="projectDetailsTitleDesbravadores">Detalhes do Projeto: Site dos
+                    Desbravadores</h2>
+                <p class="project-details-intro" data-key="projectDetailsSubtitleDesbravadores">Um site informativo para
+                    o Clube de Desbravadores, com foco em apresentar atividades, notícias e informações relevantes para
+                    membros e pais.</p>
+
+                <div class="project-overview-grid">
+                    <div class="project-description-block">
+                        <h3 data-key="overviewTitle">Visão Geral</h3>
+                        <p data-key="desbravadoresOverviewParagraph1">Este projeto consiste na criação de um site para
+                            um Clube de Desbravadores, com o objetivo de servir como um portal centralizado para
+                            comunicação e divulgação de informações. Ele visa estreitar a relação entre o clube, seus
+                            membros e a comunidade, facilitando o acesso a calendários, eventos e notícias.</p>
+                        <p data-key="desbravadoresOverviewParagraph2">As funcionalidades incluem uma seção de notícias
+                            atualizáveis, uma galeria de fotos e vídeos de atividades, informações sobre o clube
+                            (história, ideais), uma área de contato e possivelmente uma seção para downloads de
+                            materiais importantes.</p>
+                    </div>
+                    <div class="project-tech-stack">
+                        <h3 data-key="techStackTitle">Tecnologias Utilizadas</h3>
+                        <ul>
+                            <li><span class="tech-icon"><i class="fab fa-html5"></i></span> HTML5</li>
+                            <li><span class="tech-icon"><i class="fab fa-css3-alt"></i></span> CSS3</li>
+                            <li><span class="tech-icon"><i class="fab fa-js"></i></span> JavaScript</li>
+                        </ul>
+                        <a href="https://gustavoevieira.github.io/guardioesdourados/" target="_blank"
+                            class="btn-explore-project-page" data-key="viewLiveDemo">Ver Demo Ao Vivo</a>
+                        <a href="https://github.com/gustavoevieira/guardioesdourados" target="_blank" class="btn-explore-project-page"
+                            data-key="viewCodeButton">Ver Código no GitHub</a>
+                    </div>
+                </div>
+
+                <h3 class="gallery-title" data-key="projectImagesTitle">Imagens do Projeto em Ação</h3>
+                <div class="gallery-grid project-gallery-grid">
+                    <a href="javascript:void(0)" class="gallery-thumbnail" data-index="0">
+                        <img src="../img/gdclub.jpg" alt="Página Inicial do Site dos Desbravadores">
+                        <div class="thumbnail-overlay"><i class="fas fa-search"></i></div>
+                    </a>
+                    <a href="javascript:void(0)" class="gallery-thumbnail" data-index="1">
+                        <img src="../img/gdclub-news.jpg" alt="Seção de Notícias do Site dos Desbravadores">
+                        <div class="thumbnail-overlay"><i class="fas fa-search"></i></div>
+                    </a>
+                    <a href="javascript:void(0)" class="gallery-thumbnail" data-index="2">
+                        <img src="../img/gdclub-galery.jpg" alt="Galeria de Fotos do Site dos Desbravadores">
+                        <div class="thumbnail-overlay"><i class="fas fa-search"></i></div>
+                    </a>
+                </div>
+            </div>
+
+            <div id="galleryModal" class="modal">
+                <div class="modal-content">
+                    <span class="close-button">&times;</span>
+                    <div class="carousel-inner">
+                        <img src="" alt="Imagem Ampliada">
+                    </div>
+                    <button class="prev-button"><i class="fas fa-chevron-left"></i></button>
+                    <button class="next-button"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            <br>
+            <p class="back-to-projects-link"><a href="../../index.html#projects" data-key="backToProjectsLink">&larr;
+                    Voltar para Projetos</a></p>
+        </section>
+    </main>
+
+    <script>
+        window.currentProjectImages = [
+            '../img/gdclub.jpg',
+            '../img/gdclub-news.jpg',
+            '../img/gdclub-galery.jpg',
+            '../img/gdclub-ide.jpg',
+        ];
+    </script>
+    <script src="../js/script.js"></script>
+
+</body>
+
+</html>

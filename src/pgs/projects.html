@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-key="pageTitleAllProjects">Gustavo Vieira - Projetos</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/projects.css">
+    <link rel="shortcut icon" href="../img/compass-favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Open+Sans:wght@400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body class="light-mode">
+
+    <header class="main-header">
+        <div class="header-controls">
+            <button id="menuToggle" class="control-btn menu-toggle-btn">
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <button id="themeToggle" class="control-btn theme-toggle-btn">
+                <img src="../img/sun-icon.png" alt="Modo Claro" class="icon-light">
+                <img src="../img/campfire-icon.png" alt="Modo Escuro" class="icon-dark">
+            </button>
+            <button id="languageToggle" class="control-btn language-toggle-btn">
+                <span class="lang-text" data-lang="pt">PT</span>
+                <span class="lang-text" data-lang="en">EN</span>
+            </button>
+        </div>
+        <div class="nav-wrapper">
+            <nav class="compass-nav">
+                <a href="../../index.html#intro" class="nav-item" data-key="navIntro"
+                    data-tooltip-key="tooltipIntro">Início</a>
+                <a href="index.html#about" class="nav-item" data-key="navAbout" data-tooltip-key="tooltipAbout">Sobre
+                    Mim</a>
+                <a href="../../index.html#skills" class="nav-item" data-key="navSkills"
+                    data-tooltip-key="tooltipSkills">Habilidades</a>
+                <a href="../../index.html#learning" class="nav-item" data-key="navLearning"
+                    data-tooltip-key="tooltipLearning">Aprendizado</a>
+                <a href="../../index.html#stack" class="nav-item" data-key="navStack"
+                    data-tooltip-key="tooltipStack">Stack</a>
+                <a href="../../index.html#projects" class="nav-item" data-key="navProjects"
+                    data-tooltip-key="tooltipProjects">Projetos</a>
+                <a href="../../index.html#contact" class="nav-item" data-key="navContact"
+                    data-tooltip-key="tooltipContact">Contato</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="journey-container">
+        <section id="all-projects" class="journey-section all-projects-section">
+            <div class="section-content">
+                <h2 class="section-title" data-key="allProjectsTitle">Meus Projetos</h2>
+                <p class="section-subtitle" data-key="allProjectsSubtitle">Explore a diversidade das minhas criações e
+                    soluções.</p>
+
+                <div class="projects-grid all-projects-grid">
+                    <a href="project-news.html" class="project-card">
+                        <img src="../img/news.jpg" alt="Miniatura do projeto Portal de Notícias">
+                        <h3 data-key="projNewsTitle">Portal de Notícias</h3>
+                        <p data-key="projNewsDesc">Sistema completo de notícias com área administrativa segura (PHP,
+                            MySQL).</p>
+                        <div>
+                            <ul class="project-tech-card">
+                                <li><span class="tech-icon"><i class="fab fa-html5"></i></span></li>
+                                <li><span class="tech-icon"><i class="fab fa-css3-alt"></i></span></li>
+                                <li><span class="tech-icon"><i class="fab fa-js"></i></span></li>
+                                <li><span class="tech-icon"><i class="fab fa-php"></i></span></li>
+                                <li><span class="tech-icon"><i class="fas fa-database"></i></span></li>
+                            </ul>
+                        </div>
+                        <span class="project-tag" data-key="tagFullstack">Fullstack</span>
+                        <span class="project-tag" data-key="tagPHP">PHP</span>
+                        <span class="project-tag" data-key="tagMySQL">MySQL</span>
+                    </a>
+
+                    <a href="project-ecommerce.html" class="project-card">
+                        <img src="../img/ecommerce-intro.jpg" alt="Miniatura do projeto E-commerce">
+                        <h3 data-key="projEcommerceTitle">E-commerce Básico</h3>
+                        <p data-key="projEcommerceDesc">Loja online com catálogo, carrinho e painel de produtos (PHP,
+                            MySQL).</p>
+                        <div>
+                            <ul class="project-tech-card">
+                                <li><span class="tech-icon"><i class="fab fa-html5"></i></span></li>
+                                <li><span class="tech-icon"><i class="fab fa-css3-alt"></i></span></li>
+                                <li><span class="tech-icon"><i class="fab fa-js"></i></span></li>
+                                <li><span class="tech-icon"><i class="fab fa-php"></i></span></li>
+                                <li><span class="tech-icon"><i class="fas fa-database"></i></span></li>
+                            </ul>
+                        </div>
+                        <span class="project-tag" data-key="tagFullstack">Fullstack</span>
+                        <span class="project-tag" data-key="tagEcommerce">E-commerce</span>
+                        <span class="project-tag" data-key="tagPHP">PHP</span>
+                    </a>
+
+
+                    <a href="project-docesabor.html" class="project-card">
+                        <img src="../img/doceria.jpg" alt="Miniatura do projeto Doceria Doce Sabor">
+                        <h3 data-key="projDoceriaTitle">Doceria Doce Sabor</h3>
+                        <p data-key="projDoceriaDesc">Site estático com design e animações</p>
+                        <div>
+                            <ul class="project-tech-card">
+                                <li data-key="techHtml"><span class="tech-icon"><i class="fab fa-html5"></i></span>
+
+                                </li>
+                                <li data-key="techCss"><span class="tech-icon"><i class="fab fa-css3-alt"></i></span>
+
+                                </li>
+                                <li data-key="techJs"><span class="tech-icon"><i class="fab fa-js"></i></span>
+
+                                </li>
+                            </ul>
+                        </div>
+                        <span class="project-tag" data-key="tagFrontend">Frontend</span>
+                        <span class="project-tag" data-key="tagStatic">Estático</span>
+                        <span class="project-tag" data-key="tagDesign">Design</span>
+                    </a>
+
+                    <a href="project-desbravadores.html" class="project-card">
+                        <img src="../img/gdclub.jpg" alt="Miniatura de Novo Projeto">
+                        <h3 data-key="projNewStaticTitle">Guardiões Dourados</h3>
+                        <p data-key="projNewStaticDesc">Um site estático responsivo para [Nicho], explorando novas
+                            técnicas de design.</p>
+                        <ul class="project-tech-card">
+                            <li data-key="techHtml"><span class="tech-icon"><i class="fab fa-html5"></i></span>
+
+                            </li>
+                            <li data-key="techCss"><span class="tech-icon"><i class="fab fa-css3-alt"></i></span>
+
+                            </li>
+                            <li data-key="techJs"><span class="tech-icon"><i class="fab fa-js"></i></span>
+
+                            </li>
+                        </ul>
+                        <span class="project-tag" data-key="tagFrontend">Frontend</span>
+                        <span class="project-tag" data-key="tagStatic">Estático</span>
+                    </a>
+
+                    <a href="https://github.com/gustavoevieira" target="_blank" class="project-card github-more-card">
+                        <img src="../img/badge-github.png" alt="Logo do GitHub" style="width: fit-content;">
+                        <h3 data-key="projGithubTitle">Ver mais!</h3>
+                        <p data-key="projGithubDesc">Acesse outros projetos no GitHub.</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy; 2023 Gustavo Vieira - A Jornada do Desenvolvedor Desbravador. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="../js/script.js"></script>
+</body>
+
+</html>
