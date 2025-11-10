@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ação Solidária – ASA & ADRA</title>
+    <meta name="description"
+        content="Campanha de arrecadação de alimentos da igreja. Apoie famílias da comunidade e vítimas da catástrofe no Paraná.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        /* ==========================
+   Cores e variáveis globais
+========================== */
+        :root {
+            --azul: #0C2340;
+            /* Azul Adventista */
+            --dourado: #D4AF37;
+            /* Dourado principal */
+            --dourado-escuro: #B7912B;
+            --cinza: #f5f7fb;
+            --texto: #1b2430;
+            --sucesso: #2e7d32;
+            --atencao: #b71c1c;
+        }
+
+        /* ==========================
+   Reset e base
+========================== */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+            color: var(--texto);
+            background: linear-gradient(180deg, #ffffff 0%, #f9fbff 60%, #ffffff 100%);
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(1100px, 92vw);
+            margin: 0 auto;
+        }
+
+        /* ==========================
+   Cabeçalho / Navbar
+========================== */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(12, 35, 64, 0.95);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 0;
+            color: #fff;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 800;
+            letter-spacing: 0.3px;
+        }
+
+        .brand .mark img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+            filter: brightness(100%) invert(1);
+            transition: filter 0.3s ease;
+        }
+
+        .brand .mark img:hover {
+            filter: brightness(200%) invert(1);
+        }
+
+        .menu {
+            display: flex;
+            gap: 18px;
+            font-weight: 600;
+        }
+
+        .menu a {
+            opacity: 0.95;
+            padding: 8px 10px;
+            border-radius: 10px;
+            transition: background 0.2s;
+        }
+
+        .menu a:hover {
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .cta-header {
+            background: var(--dourado);
+            color: var(--azul);
+            padding: 9px 14px;
+            border-radius: 10px;
+            font-weight: 800;
+        }
+
+        /* ===== MENU HAMBURGUER ===== */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 42px;
+            height: 42px;
+            border: none;
+            background: none;
+            cursor: pointer;
+            z-index: 999;
+        }
+
+        .menu-toggle span {
+            width: 26px;
+            height: 3px;
+            margin: 4px 0;
+            background: #fff;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        /* Estado ativo (animação X) */
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        /* ==========================
+   Seção Hero
+========================== */
+        .hero {
+            padding: 64px 0 36px;
+            background: radial-gradient(1200px 500px at 10% 0%, rgba(212, 175, 55, 0.15), transparent 60%),
+                radial-gradient(900px 400px at 90% 10%, rgba(12, 35, 64, 0.1), transparent 70%);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .kicker {
+            color: var(--dourado-escuro);
+            font-weight: 800;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+        }
+
+        h1 {
+            font-size: clamp(1.8rem, 3.6vw, 3rem);
+            line-height: 1.1;
+            margin: 0.3rem 0 1rem;
+            color: var(--azul);
+        }
+
+        .lead {
+            font-size: 1.06rem;
+            color: #334;
+            opacity: 0.95;
+        }
+
+        .badges {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 14px 0 22px;
+        }
+
+        .badge {
+            font-size: 0.88rem;
+            padding: 8px 12px;
+            border-radius: 999px;
+            border: 1px solid rgba(12, 35, 64, 0.15);
+            background: #fff;
+        }
+
+        .actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 8px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 18px;
+            border-radius: 14px;
+            font-weight: 800;
+            border: 2px solid transparent;
+            transition: filter 0.2s, background 0.2s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--dourado), var(--dourado-escuro));
+            color: var(--azul);
+        }
+
+        .btn-primary:hover {
+            filter: brightness(1.05);
+        }
+
+        .btn-ghost {
+            border-color: rgba(12, 35, 64, 0.2);
+            color: var(--azul);
+            background: #fff;
+        }
+
+        .hero-card {
+            background: #fff;
+            border: 1px solid rgba(12, 35, 64, 0.1);
+            padding: 20px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(12, 35, 64, 0.08);
+        }
+
+        .hero-card h3 {
+            margin: 0 0 10px;
+            color: var(--azul);
+        }
+
+        .list {
+            margin: 0;
+            padding-left: 18px;
+        }
+
+        .list li {
+            margin: 8px 0;
+        }
+
+        .note {
+            font-size: 0.9rem;
+            color: #4a5568;
+        }
+
+        /* ==========================
+   Estrutura de seções
+========================== */
+        section {
+            padding: 64px 0;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .section-title .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--dourado), var(--dourado-escuro));
+        }
+
+        h2 {
+            margin: 0.2rem 0 12px;
+            color: var(--azul);
+            font-size: clamp(1.4rem, 2.4vw, 2rem);
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 18px;
+        }
+
+        .card {
+            background: #fff;
+            border: 1px solid rgba(12, 35, 64, 0.1);
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 8px 24px rgba(12, 35, 64, 0.06);
+        }
+
+        .card h3 {
+            margin: 0 0 6px;
+            color: var(--azul);
+        }
+
+        /* ==========================
+   Timeline
+========================== */
+        .timeline {
+            border-left: 3px solid var(--dourado);
+            margin-left: 10px;
+            padding-left: 18px;
+        }
+
+        .timeline .item {
+            margin: 16px 0;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 999px;
+            background: rgba(212, 175, 55, 0.14);
+            color: var(--azul);
+            font-weight: 700;
+            font-size: 0.8rem;
+        }
+
+        /* ==========================
+   FAQ
+========================== */
+        details {
+            background: #fff;
+            border: 1px solid rgba(12, 35, 64, 0.1);
+            padding: 14px 16px;
+            border-radius: 12px;
+            margin: 10px 0;
+        }
+
+        summary {
+            cursor: pointer;
+            font-weight: 700;
+            color: var(--azul);
+        }
+
+        /* ==========================
+   Rodapé
+========================== */
+        footer {
+            background: var(--azul);
+            color: #fff;
+            padding: 28px 0;
+            margin-top: 28px;
+        }
+
+        footer .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        footer .brand .mark img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+            filter: brightness(100%) invert(1);
+            transition: filter 0.3s ease;
+        }
+
+        footer .brand .mark img:hover {
+            filter: brightness(200%) invert(1);
+        }
+
+        .cols {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 18px;
+        }
+
+        .muted {
+            opacity: 0.85;
+        }
+
+        .legal {
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+            margin-top: 16px;
+            padding-top: 16px;
+            font-size: 0.92rem;
+        }
+
+        /* ==========================
+   Responsividade avançada
+========================== */
+        @media (max-width: 900px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .menu {
+                display: none;
+            }
+
+            header.active .menu {
+                display: flex;
+                flex-direction: column;
+                background: rgba(12, 35, 64, 0.98);
+                position: absolute;
+                top: 60px;
+                right: 10px;
+                border-radius: 12px;
+                padding: 10px;
+                animation: fadeIn 0.3s ease;
+            }
+
+            .nav {
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+
+            .brand .mark img {
+                width: 32px;
+                height: 32px;
+            }
+
+            .btn,
+            .btn-primary,
+            .btn-ghost {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .hero {
+                text-align: center;
+            }
+
+            .actions {
+                justify-content: center;
+            }
+
+            .hero-card {
+                margin-top: 20px;
+            }
+
+            section {
+                padding: 48px 0;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .card {
+                padding: 16px;
+            }
+
+            footer .cols {
+                text-align: center;
+            }
+
+            footer .brand {
+                justify-content: center;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                right: 16px;
+                background: rgba(12, 35, 64, 0.98);
+                padding: 16px;
+                border-radius: 12px;
+                width: 220px;
+                animation: fadeIn 0.3s ease;
+            }
+
+            .menu.open {
+                display: flex;
+            }
+
+            .menu a {
+                color: #fff;
+                padding: 10px;
+                border-radius: 8px;
+                text-align: center;
+            }
+
+            .menu a:hover {
+                background: rgba(255, 255, 255, 0.1);
+            }
+
+        }
+
+        @media (max-width: 600px) {
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            p,
+            .lead {
+                font-size: 1rem;
+            }
+
+            .badge {
+                font-size: 0.75rem;
+                padding: 6px 10px;
+            }
+
+            .btn {
+                padding: 10px 14px;
+                font-size: 0.9rem;
+            }
+
+            .container {
+                width: 94vw;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container nav">
+            <div class="brand">
+                <div class="mark"><img src="src/img/adventist-symbol--denim.png" alt=""></div>
+                <div>Ação Solidária <span style="opacity:.8;font-weight:600">— ASA & ADRA</span></div>
+            </div>
+
+            <nav class="menu">
+                <a href="#sobre">Sobre</a>
+                <a href="#campanha">Campanha</a>
+                <a href="#asa-adra">ASA & ADRA</a>
+                <a href="#desbravadores">Desbravadores</a>
+                <a href="#como-doar" class="cta-header">Como Doar</a>
+            </nav>
+
+            <!-- Botão do menu hamburguer -->
+            <button class="menu-toggle" aria-label="Abrir menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" id="topo">
+        <div class="container hero-grid">
+            <div>
+                <div class="kicker">Igreja Adventista do Sétimo Dia • Solidariedade</div>
+                <h1>Unidos pelo Amor — <br>Arrecadação de Alimentos</h1>
+                <p class="lead">Neste domingo (<strong>16 de novembro de 2025</strong>), nossa igreja realiza uma
+                    campanha de arrecadação para <strong>familias carentes da comunidade</strong> e para apoiar as
+                    vítimas da <strong>catástrofe no Paraná</strong>. Sua contribuição transforma vidas.</p>
+                <div class="badges">
+                    <span class="badge">Alimentos não perecíveis</span>
+                    <span class="badge">Higiene e Limpeza</span>
+                    <span class="badge">Transparência na distribuição</span>
+                </div>
+                <div class="actions">
+                    <a class="btn btn-primary" href="#como-doar">Quero contribuir</a>
+                    <a class="btn btn-ghost" href="#campanha">Entenda a campanha</a>
+                </div>
+            </div>
+            <aside class="hero-card">
+                <h3>Informações rápidas</h3>
+                <ul class="list">
+                    <li><strong>Quando:</strong> Domingo, 16/11</li>
+                    <li><strong>Onde:</strong> Nos Supermercados Araujo, Rocha e Tiba</li>
+                    <li><strong>Horários:</strong> 7h às 12h</li>
+                    <li><strong>Entrega:</strong> Parte das doações seguirá para o <em>Paraná</em>; o restante atenderá
+                        famílias da nossa <em>comunidade local</em>.</li>
+                </ul>
+                <p class="note">* Traga itens dentro do prazo de validade, lacrados e em boas condições.</p>
+            </aside>
+        </div>
+    </section>
+
+    <!-- Sobre -->
+    <section id="sobre">
+        <div class="container">
+            <div class="section-title"><span class="dot"></span><span class="tag">Propósito</span></div>
+            <h2>Por que estamos arrecadando?</h2>
+            <p>Porque acreditamos no chamado bíblico de <em>amar ao próximo</em>. Esta ação une a igreja, a comunidade e
+                voluntários para combater a fome, apoiar famílias em vulnerabilidade e estender socorro emergencial às
+                pessoas afetadas pela tragédia no Paraná.</p>
+            <div class="card-grid" style="margin-top:16px">
+                <div class="card">
+                    <h3>Impacto local</h3>
+                    <p>Identificamos famílias da região com necessidades imediatas. Parte das doações será organizada e
+                        entregue com acompanhamento social.</p>
+                </div>
+                <div class="card">
+                    <h3>Resposta a desastres</h3>
+                    <p>Outra parte seguirá para a região atingida no Paraná, somando esforços com iniciativas
+                        humanitárias já em curso.</p>
+                </div>
+                <div class="card">
+                    <h3>Transparência</h3>
+                    <p>Prestaremos contas do volume arrecadado e dos destinos das doações ao final da campanha.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Campanha -->
+    <section id="campanha" style="background:var(--cinza)">
+        <div class="container">
+            <div class="section-title"><span class="dot"></span><span class="tag">Como funciona</span></div>
+            <h2>Campanha de arrecadação</h2>
+            <div class="timeline">
+                <div class="item">
+                    <strong>Coleta</strong> — Recebemos alimentos não perecíveis e itens de higiene/limpeza na igreja
+                    durante os horários oficiais.
+                </div>
+                <div class="item">
+                    <strong>Triagem</strong> — Conferimos validade e organizamos kits balanceados por família.
+                </div>
+                <div class="item">
+                    <strong>Distribuição</strong> — Entregas para famílias carentes da <em>comunidade</em> e envio de
+                    mantimentos ao <em>Paraná</em> para assistência emergencial.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ASA & ADRA -->
+    <section id="asa-adra">
+        <div class="container">
+            <div class="section-title"><span class="dot"></span><span class="tag">Parcerias</span></div>
+            <h2>ASA & ADRA — mãos estendidas</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>ASA — Ação Social Adventista</h3>
+                    <p>A <strong>ASA</strong> coordena projetos de assistência social da igreja local: mapeamento de
+                        necessidades, visitas, orientação e distribuição de cestas e kits, sempre com dignidade e
+                        respeito.</p>
+                </div>
+                <div class="card">
+                    <h3>ADRA — Agência Adventista de Desenvolvimento e Recursos Assistenciais</h3>
+                    <p>A <strong>ADRA</strong> atua em desenvolvimento comunitário e resposta a desastres. Com rede
+                        nacional e internacional, potencializa a ajuda humanitária de forma profissional e eficiente.
+                    </p>
+                </div>
+                <div class="card">
+                    <h3>Unidos por um propósito</h3>
+                    <p>Juntas, <strong>ASA e ADRA</strong> mobilizam voluntários, recursos e logística para que sua
+                        doação chegue a quem precisa, no tempo certo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Desbravadores -->
+    <section id="desbravadores" style="background:var(--cinza)">
+        <div class="container">
+            <div class="section-title"><span class="dot"></span><span class="tag">Voluntariado</span></div>
+            <h2>Voluntários em ação</h2>
+            <p>Durante a campanha, você verá nossos <strong>voluntários</strong> — entre eles, membros da igreja e o
+                <strong>Clube de Desbravadores</strong>.
+            </p>
+            <div class="section-title"><span class="dot"></span><span class="tag">Clube de Desbravadores</span></div>
+            <p>O Clube de Desbravadores é um movimento mundial de juvenis e
+                adolescentes que desenvolve disciplina, serviço e amor ao próximo. Juntos, eles apoiarão a recepção,
+                triagem e organização das doações.</p>
+            <div class="badges">
+                <span class="badge">Serviço</span>
+                <span class="badge">Disciplina</span>
+                <span class="badge">Esperança</span>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Como Doar -->
+    <section id="como-doar">
+        <div class="container">
+            <div class="section-title"><span class="dot"></span><span class="tag">Participe</span></div>
+            <h2>Como você pode ajudar</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Itens Prioritários</h3>
+                    <ul class="list">
+                        <li>Arroz, feijão, macarrão, óleo, leite em pó, farinha</li>
+                        <li>Molho de tomate, enlatados (milho, ervilha, sardinha)</li>
+                        <li>Açúcar, biscoitos, sal</li>
+                        <li>Itens de higiene: sabonete, pasta/escova dental, absorventes</li>
+                        <li>Limpeza: sabão em barra, detergente, água sanitária</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Pontos & Horários</h3>
+                    <p><strong>Nos Supermercados da cidade</strong><br>• Dom 7h–12h</p>
+                    <p>• Araujo Supermercado</p>
+                    <p>• Supermercado Irmãos Rocha</p>
+                    <p>• Supermercado Tiba</p>
+                    <p class="note">Se preferir, combinamos coleta domiciliar.</p>
+                </div>
+                <div class="card">
+                    <h3>Outras formas</h3>
+                    <p> Entre em contato com a equipe para contribuir de outras formas.</p>
+                    <a class="btn btn-ghost"
+                        href="https://wa.me/5541997436790?text=Gostaria%20de%20ajudar%20na%20ação%20social"
+                        style="margin-top:6px;display:inline-flex" target="_blank">Falar com a equipe</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" style="background:var(--cinza)">
+        <div class="container">
+            <div class="section-title"><span class="dot"></span><span class="tag">Dúvidas</span></div>
+            <h2>Perguntas frequentes</h2>
+            <details>
+                <summary>Posso doar alimentos próximos ao vencimento?</summary>
+                <p>Preferimos itens com ao menos 30 dias de validade restante, lacrados e em boas condições.</p>
+            </details>
+            <details>
+                <summary>Como saber para onde minha doação foi?</summary>
+                <p>Publicaremos um relatório simples após a campanha com volumes arrecadados e destinos de entrega.</p>
+            </details>
+            <details>
+                <summary>É possível doar em dinheiro?</summary>
+                <p>Fale com a coordenação (abaixo) para orientações. Priorizamos alimentos e itens de higiene/limpeza.
+                </p>
+            </details>
+        </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato">
+        <div class="container">
+            <div class="section-title"><span class="dot"></span><span class="tag">Contato</span></div>
+            <h2>Fale com a coordenação</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Coordenação ASA</h3>
+                    <p>Jenifer<br>
+                        <a href="https://wa.me/5516991749674?text=Gostaria%20de%20ajudar%20na%20ação%20social "
+                            target="_blank">(16) 9
+                            9174-9674</a>
+                </div>
+                <div class="card">
+                    <h3>Logística/Transporte</h3>
+                    <p>Edimar<br>
+                        <a href="https://wa.me/5516912345678?text=Gostaria%20de%20saber%20mais%20sobre%20o%20transporte%20e%20logística%20das%20doações "
+                            target="_blank">(11)
+                            9 9742-6618</a>
+                </div>
+                <div class="card">
+                    <h3>Parcerias & Doações em volume</h3>
+                    <p>Gustavo<br>
+                        <a href="https://wa.me/5541997436790?text=Gostaria%20de%20ajudar%20na%20com%20uma%20parceria%20ou%20doar%20um%20volume"
+                            target="_blank">(41)
+                            9 9743-6790</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="cols">
+                <div>
+                    <div class="brand" style="margin-bottom:8px">
+                        <div class="mark"><img src="src/img/adventist-symbol--denim.png" alt=""></div>
+                        <div>Ação Solidária</div>
+                    </div>
+                    <div class="muted">“E não nos cansemos de fazer o bem...” (Gálatas 6:9)</div>
+                </div>
+                <div>
+                    <div style="font-weight:800;margin-bottom:6px">Navegação</div>
+                    <div class="muted"><a href="#topo">Início</a> • <a href="#asa-adra">ASA & ADRA</a> • <a
+                            href="#como-doar">Como Doar</a></div>
+                </div>
+                <div>
+                    <div style="font-weight:800;margin-bottom:6px">Endereço</div>
+                    <div class="muted">Rua Paulo Pinheiro, nº 100, Jd. Aeroporto – Dourado/SP</div>
+                </div>
+            </div>
+            <div class="legal">© 2025 Igreja Adventista do Sétimo Dia de Dourado — Ação Solidária. Todos os direitos
+                reservados.</div>
+        </div>
+    </footer>
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const menu = document.querySelector('.menu');
+        const header = document.querySelector('header');
+
+        menuToggle.addEventListener('click', () => {
+            menu.classList.toggle('open');
+            menuToggle.classList.toggle('active');
+            header.classList.toggle('active');
+        });
+
+        // Fecha o menu ao clicar em um link
+        menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.remove('open');
+                menuToggle.classList.remove('active');
+                header.classList.remove('active');
+            });
+        });
+
+
+    </script>
+</body>
+
+</html>
