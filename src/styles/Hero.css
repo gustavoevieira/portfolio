@@ -1,0 +1,30 @@
+/* src/styles/Hero.css */
+
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.hero-left {
+  flex: 1 1 260px;
+}
+
+.hero-right {
+  flex: 0 0 320px;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-sub {
+  margin-top: 0.6rem;
+  max-width: 480px;
+}
+
+.hero-actions {
+  margin-top: 1.2rem;
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}

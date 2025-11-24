@@ -1,0 +1,39 @@
+/* Services Section */
+
+.services h3 {
+  margin-bottom: 0.5rem;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.service-card {
+  padding: 1rem;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.service-card h4 {
+  margin-bottom: 0.3rem;
+}
+
+.service-card p {
+  margin-bottom: 0.6rem;
+  color: var(--muted);
+}
+
+.service-card ul {
+  padding-left: 1.2rem;
+  color: var(--muted);
+  margin-bottom: 0.6rem;
+}
+
+.services-cta {
+  margin-top: 1rem;
+  display: inline-block;
+}

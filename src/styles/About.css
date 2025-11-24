@@ -1,0 +1,24 @@
+/* src/styles/About.css */
+
+.about h3 {
+  margin-bottom: 0.6rem;
+}
+
+.about p {
+  margin-bottom: 0.9rem;
+}
+
+.about-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.about-tags li {
+  list-style: none;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  font-size: 0.8rem;
+  color: var(--muted);
+}
