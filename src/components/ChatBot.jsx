@@ -18,29 +18,32 @@ export default function ChatBot() {
   const [input, setInput] = useState("");
   const [showScrollDown, setShowScrollDown] = useState(false);
 
-  const messagesEndRef = useRef(null);
+  // REF DA ÚLTIMA MENSAGEM
+  const lastMessageRef = useRef(null);
 
-  function scrollToBottom() {
-    if (!messagesEndRef.current) return;
+  // FUNÇÃO PARA ROLAR PARA O *TOPO* DA ÚLTIMA MENSAGEM
+  function scrollToMessageTop() {
+    if (!lastMessageRef.current) return;
 
-    const parent = messagesEndRef.current.parentElement;
+    const container = lastMessageRef.current.parentElement;
 
-    parent.scrollTo({
-      top: messagesEndRef.current.offsetTop - 20,
-      behavior: "smooth"
-    });
+    // Alinha exatamente no começo da mensagem
+    container.scrollTop = lastMessageRef.current.offsetTop - 10;
   }
 
+  // SCROLL SEMPRE QUE CHEGA MENSAGEM NOVA
   useEffect(() => {
-    scrollToBottom();
-  }, [messages, typing]);
+    scrollToMessageTop();
+  }, [messages]); // ⚠ REMOVIDO TYPING DAQUI
 
+  // CONTROLE DO BOTÃO ↓
   function handleScroll(e) {
     const el = e.target;
     const isBottom = el.scrollHeight - el.scrollTop - el.clientHeight < 50;
     setShowScrollDown(!isBottom);
   }
 
+  // ENVIO DE MENSAGEM
   async function sendMessage() {
     if (!input.trim()) return;
 
@@ -66,17 +69,30 @@ export default function ChatBot() {
               content: `
 Você é o assistente virtual do desenvolvedor Gustavo Vieira.
 
-Explique seus serviços:
+Seu comportamento deve seguir estas regras:
+
+1. Explique sempre de forma simples, profissional e objetiva.
+2. Nunca envie o link do WhatsApp automaticamente.
+3. Sempre pergunte antes:  
+   "Quer continuar comigo pelo WhatsApp?"
+4. Se o usuário disser que SIM, aí você envia o link:
+   https://wa.me/5541997436790?text=Olá%20Gustavo!%20Vim%20pelo%20seu%20portfólio.%20Quero%20falar%20sobre%20meu%20projeto.
+5. Se o usuário responder que NÃO, apenas continue ajudando pelo chat normalmente.
+6. Caso o usuário descreva um projeto, você pode sugerir a opção de falar no WhatsApp, mas SEMPRE perguntando antes.
+7. Jamais envie o link do WhatsApp sem que o usuário tenha concordado.
+
+Informações do Gustavo:
 
 • Criação de sites e landing pages  
-• Bots e automações (WhatsApp/Python)  
+• Bots e automações (WhatsApp e Python)  
 • Dashboards e sistemas internos  
 • Consultoria em tecnologia  
-• Tecnologias: React, Node.js, Python, MySQL, Git, GitHub  
+• Tecnologias usadas: React, Node.js, Python, MySQL, Git, GitHub  
 • Projetos reais: Fazzio Madeiras, Doce Sabor, VyraOne Dashboard  
 
-Seja educado, direto e profissional.
-              `,
+Seja educado, direto, profissional e amigável.
+`,
+
             },
             ...messages.map((m) => ({
               role: m.sender === "user" ? "user" : "assistant",
@@ -116,7 +132,7 @@ Seja educado, direto e profissional.
         className={`chatbot-btn ${open ? "opened" : ""}`}
         onClick={() => setOpen(!open)}
       >
-        <Lottie animationData={roboAnim} loop={true} autoplay={true} />
+        <Lottie animationData={roboAnim} loop autoplay />
       </div>
 
       {/* JANELA DO CHAT */}
@@ -126,7 +142,7 @@ Seja educado, direto e profissional.
           {/* HEADER */}
           <div className="chatbot-header">
             <div className="bot-avatar">
-              <Lottie animationData={roboAnim} loop={true} />
+              <Lottie animationData={roboAnim} loop />
             </div>
 
             <h4>Assistente Virtual</h4>
@@ -137,24 +153,26 @@ Seja educado, direto e profissional.
           {/* LISTA DE MENSAGENS */}
           <div className="chatbot-messages" onScroll={handleScroll}>
             {messages.map((msg, index) => (
-              <div key={index} className={`msg ${msg.sender}`}>
+              <div
+                key={index}
+                className={`msg ${msg.sender}`}
+                ref={index === messages.length - 1 ? lastMessageRef : null}
+              >
                 <ReactMarkdown>{msg.text}</ReactMarkdown>
               </div>
             ))}
 
             {typing && (
               <div className="typing-indicator">
-                <Lottie animationData={roboAnim} loop={true} />
+                <Lottie animationData={roboAnim} loop />
                 <span className="dots"><span>.</span><span>.</span><span>.</span></span>
               </div>
             )}
-
-            <div ref={messagesEndRef} />
           </div>
 
-          {/* BOTÃO ↓ PARA VOLTAR AO FINAL */}
+          {/* BOTÃO ↓ PARA IR AO TOPO DA ÚLTIMA MENSAGEM */}
           {showScrollDown && (
-            <button className="scroll-down-btn" onClick={scrollToBottom}>
+            <button className="scroll-down-btn" onClick={scrollToMessageTop}>
               ↓
             </button>
           )}
