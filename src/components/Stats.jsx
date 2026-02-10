@@ -4,7 +4,6 @@ import "../styles/Stats.css";
 
 export default function Stats() {
   const stats = [
-    { number: "1+", label: "Ano estudando desenvolvimento web" },
     { number: "15+", label: "Projetos práticos desenvolvidos" },
     { number: "5+", label: "Tecnologias principais" },
     { number: "1000+", label: "Horas de estudo e prática" },
