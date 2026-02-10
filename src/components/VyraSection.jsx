@@ -8,24 +8,21 @@ export default function VyraSection() {
   return (
     <section className="card vyra">
       <div className="vyra-text">
-        <h3>VyraOne · Plataforma de automações</h3>
+        <h3>VyraOne · Projeto conceitual</h3>
         <p>
-          A VyraOne é uma central para{" "}
-          <strong>dashboards, automações e integrações</strong> com
-          ERPs, bancos de dados e APIs. Ideal para empresas que
-          precisam organizar processos e ganhar eficiência sem
-          complicação.
+          A <strong>VyraOne</strong> é uma ideia de projeto que estou
+          desenvolvendo como estudo, com foco em organização de dados,
+          dashboards e automações internas.
+          O objetivo é evoluir essa ideia gradualmente, aplicando
+          conceitos de front-end, lógica e integração com APIs.
         </p>
 
         <ul className="vyra-list">
-          <li>Dashboards personalizados</li>
-          <li>Integração com bancos de dados e APIs</li>
-          <li>Bots e automações internas</li>
+          <li>Conceito de dashboards interativos</li>
+          <li>Estudos de integração com APIs</li>
+          <li>Arquitetura pensada para evolução futura</li>
         </ul>
 
-        <a href="#contact" className="btn">
-          Quero saber mais
-        </a>
       </div>
 
       <motion.div

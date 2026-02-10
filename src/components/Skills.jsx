@@ -21,8 +21,6 @@ export default function Skills() {
     { icon: <FaHtml5 />, label: "HTML" },
     { icon: <FaJs />, label: "JavaScript" },
     { icon: <FaNode />, label: "Node.js" },
-    { icon: <FaPython />, label: "Python" },
-    { icon: <FaPhp />, label: "PHP" },
     { icon: <FaDatabase />, label: "MySQL" },
     { icon: <FaGitAlt />, label: "Git" },
     { icon: <FaGithub />, label: "GitHub" },

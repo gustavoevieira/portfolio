@@ -13,7 +13,7 @@ export default function Header({ theme, toggleTheme }) {
 
         <div>
           <h2>Gustavo Vieira</h2>
-          <span className="muted">Desenvolvedor Fullstack · VyraOne</span>
+          <span className="muted">Desenvolvedor Frontend</span>
         </div>
 
       </div>

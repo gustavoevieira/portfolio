@@ -5,32 +5,40 @@ import "../styles/Services.css";
 export default function Services() {
   const services = [
     {
-      title: "Criação de sites e landing pages",
-      desc: "Sites modernos, rápidos e responsivos para apresentar seu negócio e captar clientes.",
-      items: ["Site institucional", "Landing page de vendas", "Integração com WhatsApp"],
+      title: "Desenvolvimento Front-end",
+      desc: "Criação de interfaces modernas, responsivas e bem estruturadas.",
+      items: [
+        "React com JSX",
+        "Estilização com Tailwind CSS",
+        "Componentização e boas práticas",
+      ],
     },
     {
-      title: "Dashboards e sistemas sob medida",
-      desc: "Painéis internos para organizar dados e facilitar a gestão empresarial.",
-      items: ["Painéis administrativos", "Relatórios automáticos", "Controle de vendas/estoque"],
+      title: "Aplicações Web",
+      desc: "Projetos web focados em organização, usabilidade e código limpo.",
+      items: [
+        "Formulários e validações",
+        "Consumo de APIs",
+        "Layouts responsivos",
+      ],
     },
     {
-      title: "Bots e automações",
-      desc: "Automatizo tarefas repetitivas e crio bots que economizam horas de trabalho.",
-      items: ["Bots WhatsApp", "Automação com Python", "Integrações com ERPs"],
-    },
-    {
-      title: "Consultoria em tecnologia",
-      desc: "Te ajudo a identificar oportunidades e criar soluções sob medida.",
-      items: ["Mapeamento de processos", "Recomendações técnicas", "Acompanhamento estratégico"],
+      title: "Aprendizado contínuo",
+      desc: "Sempre evoluindo e estudando novas tecnologias.",
+      items: [
+        "Boas práticas de desenvolvimento",
+        "Versionamento com Git",
+        "Evolução para full stack",
+      ],
     },
   ];
 
   return (
     <section className="card services">
-      <h3>O que eu faço</h3>
+      <h3>O que eu desenvolvo</h3>
       <p className="muted">
-        Soluções tecnológicas criadas para empresas, autônomos e comércios locais.
+        Áreas nas quais tenho experiência prática e venho me aprofundando
+        constantemente como desenvolvedor.
       </p>
 
       <div className="services-grid">

@@ -18,32 +18,26 @@ export default function ChatBot() {
   const [input, setInput] = useState("");
   const [showScrollDown, setShowScrollDown] = useState(false);
 
-  // REF DA ÚLTIMA MENSAGEM
   const lastMessageRef = useRef(null);
 
-  // FUNÇÃO PARA ROLAR PARA O *TOPO* DA ÚLTIMA MENSAGEM
   function scrollToMessageTop() {
     if (!lastMessageRef.current) return;
 
     const container = lastMessageRef.current.parentElement;
 
-    // Alinha exatamente no começo da mensagem
     container.scrollTop = lastMessageRef.current.offsetTop - 10;
   }
 
-  // SCROLL SEMPRE QUE CHEGA MENSAGEM NOVA
   useEffect(() => {
     scrollToMessageTop();
-  }, [messages]); // ⚠ REMOVIDO TYPING DAQUI
+  }, [messages]);
 
-  // CONTROLE DO BOTÃO ↓
   function handleScroll(e) {
     const el = e.target;
     const isBottom = el.scrollHeight - el.scrollTop - el.clientHeight < 50;
     setShowScrollDown(!isBottom);
   }
 
-  // ENVIO DE MENSAGEM
   async function sendMessage() {
     if (!input.trim()) return;
 

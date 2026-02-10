@@ -24,9 +24,10 @@ export default function Hero() {
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.1, duration: 0.4 }}
         >
-          Desenvolvedor Fullstack focado em{" "}
-          <strong>web sites, automações, sistemas e dashboards</strong> para
-          negócios.
+          Desenvolvedor Front-End focado crio interfaces{" "}
+          <strong>modernas, responsivas e bem estruturadas </strong>
+          utilizando React, JavaScript e Tailwind CSS.
+        
         </motion.p>
 
         <motion.div
